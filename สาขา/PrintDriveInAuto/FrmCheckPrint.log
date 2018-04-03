@@ -1,0 +1,30 @@
+Line 36: Class MSComctlLib.ListView of control ListViewPrintList was not a loaded control class.
+Line 124: Class MSComctlLib.ListView of control ListView101 was not a loaded control class.
+Line 42: The property name _ExtentX in ListViewPrintList is invalid.
+Line 43: The property name _ExtentY in ListViewPrintList is invalid.
+Line 44: The property name View in ListViewPrintList is invalid.
+Line 45: The property name LabelEdit in ListViewPrintList is invalid.
+Line 46: The property name LabelWrap in ListViewPrintList is invalid.
+Line 47: The property name HideSelection in ListViewPrintList is invalid.
+Line 48: The property name FlatScrollBar in ListViewPrintList is invalid.
+Line 49: The property name FullRowSelect in ListViewPrintList is invalid.
+Line 50: The property name GridLines in ListViewPrintList is invalid.
+Line 51: The property name _Version in ListViewPrintList is invalid.
+Line 56: The property name NumItems in ListViewPrintList is invalid.
+Line 60: The property name ColumnHeader(1) in ListViewPrintList is invalid.
+Line 65: The property name ColumnHeader(2) in ListViewPrintList is invalid.
+Line 70: The property name ColumnHeader(3) in ListViewPrintList is invalid.
+Line 131: The property name _ExtentX in ListView101 is invalid.
+Line 132: The property name _ExtentY in ListView101 is invalid.
+Line 133: The property name View in ListView101 is invalid.
+Line 134: The property name LabelEdit in ListView101 is invalid.
+Line 135: The property name LabelWrap in ListView101 is invalid.
+Line 136: The property name HideSelection in ListView101 is invalid.
+Line 137: The property name FullRowSelect in ListView101 is invalid.
+Line 138: The property name GridLines in ListView101 is invalid.
+Line 139: The property name _Version in ListView101 is invalid.
+Line 153: The property name NumItems in ListView101 is invalid.
+Line 157: The property name ColumnHeader(1) in ListView101 is invalid.
+Line 162: The property name ColumnHeader(2) in ListView101 is invalid.
+Line 167: The property name ColumnHeader(3) in ListView101 is invalid.
+Line 172: The property name ColumnHeader(4) in ListView101 is invalid.

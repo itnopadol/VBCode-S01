@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Calcurate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CalcurateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CalcurateResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vGetData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vBarCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vGetDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vGetDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vGetDataBarCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vBarCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vGetDataBarCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vGetDataBarCodeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vExecuteQuery">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vStrQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vExecuteQueryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vExecuteQueryResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vGetQueryAnlyzer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vStrQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vGetQueryAnlyzerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vGetQueryAnlyzerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vLogIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vPassWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="vLogInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="vLogInResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="CalcurateSoapIn">
+    <wsdl:part name="parameters" element="tns:Calcurate" />
+  </wsdl:message>
+  <wsdl:message name="CalcurateSoapOut">
+    <wsdl:part name="parameters" element="tns:CalcurateResponse" />
+  </wsdl:message>
+  <wsdl:message name="vGetDataSoapIn">
+    <wsdl:part name="parameters" element="tns:vGetData" />
+  </wsdl:message>
+  <wsdl:message name="vGetDataSoapOut">
+    <wsdl:part name="parameters" element="tns:vGetDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="vGetDataBarCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:vGetDataBarCode" />
+  </wsdl:message>
+  <wsdl:message name="vGetDataBarCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:vGetDataBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="vExecuteQuerySoapIn">
+    <wsdl:part name="parameters" element="tns:vExecuteQuery" />
+  </wsdl:message>
+  <wsdl:message name="vExecuteQuerySoapOut">
+    <wsdl:part name="parameters" element="tns:vExecuteQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="vGetQueryAnlyzerSoapIn">
+    <wsdl:part name="parameters" element="tns:vGetQueryAnlyzer" />
+  </wsdl:message>
+  <wsdl:message name="vGetQueryAnlyzerSoapOut">
+    <wsdl:part name="parameters" element="tns:vGetQueryAnlyzerResponse" />
+  </wsdl:message>
+  <wsdl:message name="vLogInSoapIn">
+    <wsdl:part name="parameters" element="tns:vLogIn" />
+  </wsdl:message>
+  <wsdl:message name="vLogInSoapOut">
+    <wsdl:part name="parameters" element="tns:vLogInResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceCalcSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Calcurate">
+      <wsdl:input message="tns:CalcurateSoapIn" />
+      <wsdl:output message="tns:CalcurateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="vGetData">
+      <wsdl:input message="tns:vGetDataSoapIn" />
+      <wsdl:output message="tns:vGetDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="vGetDataBarCode">
+      <wsdl:input message="tns:vGetDataBarCodeSoapIn" />
+      <wsdl:output message="tns:vGetDataBarCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="vExecuteQuery">
+      <wsdl:input message="tns:vExecuteQuerySoapIn" />
+      <wsdl:output message="tns:vExecuteQuerySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="vGetQueryAnlyzer">
+      <wsdl:input message="tns:vGetQueryAnlyzerSoapIn" />
+      <wsdl:output message="tns:vGetQueryAnlyzerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="vLogIn">
+      <wsdl:input message="tns:vLogInSoapIn" />
+      <wsdl:output message="tns:vLogInSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceCalcSoap" type="tns:WebServiceCalcSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calcurate">
+      <soap:operation soapAction="http://tempuri.org/Calcurate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vGetData">
+      <soap:operation soapAction="http://tempuri.org/vGetData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vGetDataBarCode">
+      <soap:operation soapAction="http://tempuri.org/vGetDataBarCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vExecuteQuery">
+      <soap:operation soapAction="http://tempuri.org/vExecuteQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vGetQueryAnlyzer">
+      <soap:operation soapAction="http://tempuri.org/vGetQueryAnlyzer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vLogIn">
+      <soap:operation soapAction="http://tempuri.org/vLogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceCalcSoap12" type="tns:WebServiceCalcSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Calcurate">
+      <soap12:operation soapAction="http://tempuri.org/Calcurate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vGetData">
+      <soap12:operation soapAction="http://tempuri.org/vGetData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vGetDataBarCode">
+      <soap12:operation soapAction="http://tempuri.org/vGetDataBarCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vExecuteQuery">
+      <soap12:operation soapAction="http://tempuri.org/vExecuteQuery" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vGetQueryAnlyzer">
+      <soap12:operation soapAction="http://tempuri.org/vGetQueryAnlyzer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="vLogIn">
+      <soap12:operation soapAction="http://tempuri.org/vLogIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceCalc">
+    <wsdl:port name="WebServiceCalcSoap" binding="tns:WebServiceCalcSoap">
+      <soap:address location="http://192.168.2.2/webservicecalc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceCalcSoap12" binding="tns:WebServiceCalcSoap12">
+      <soap12:address location="http://192.168.2.2/webservicecalc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

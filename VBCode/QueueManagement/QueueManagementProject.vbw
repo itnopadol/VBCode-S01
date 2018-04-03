@@ -1,0 +1,14 @@
+FrmLogIN = 136, 178, 744, 599, Z, 0, 0, 621, 429, C
+MDIQueueManagement = 92, 120, 705, 541, , 44, 58, 665, 487, C
+FrmQueue = 67, 88, 686, 515, , 25, 32, 640, 455, C
+Module1 = 4, 4, 617, 425, 
+FrmPicker = 136, 178, 749, 599, , 110, 145, 731, 574, C
+FrmCheckQTY = 92, 120, 705, 541, , 66, 87, 687, 516, C
+FrmReport101 = 158, 207, 1045, 739, , 22, 29, 635, 446, C
+FrmPayItemCust = 92, 120, 700, 541, , 22, 29, 638, 458, C
+FormPrintPayGoodsRes = 136, 178, 744, 599, , 88, 116, 704, 545, C
+FormCustReceiptItem = 202, 265, 1000, 855, , 176, 232, 982, 830, C
+FrmQueuePickingPrint = 0, 0, 0, 0, C, 88, 116, 894, 714, C
+FrmPrintReceiveSlip = 66, 87, 872, 685, , 44, 58, 850, 656, C
+FrmQueueManagement = 22, 29, 828, 627, , 44, 58, 850, 656, C
+FrmCheckCustReceive = 110, 145, 810, 612, , 88, 116, 788, 583, C

@@ -1,0 +1,11 @@
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\bin\Debug\NopadolApplication.exe
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\bin\Debug\NopadolApplication.pdb
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\bin\Debug\NopadolApplication.xml
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\obj\Debug\NopadolApplication.Resources.resources
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\obj\Debug\NopadolApplication.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\obj\Debug\NopadolApplication.exe
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\obj\Debug\NopadolApplication.xml
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\obj\Debug\NopadolApplication.pdb
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\obj\Debug\NopadolApplication.FrmMain.resources
+D:\Work\Nopadol\Program\SymbolApplication\SymbolApplication\NopadolApplication\bin\Debug\NPDB.sdf

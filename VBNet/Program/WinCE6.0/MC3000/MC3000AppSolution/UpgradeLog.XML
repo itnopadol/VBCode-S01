@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="MC3000AppSolution">
+</Property><Property Name="Solution File" Value="D:\Work\Nopadol\Program\WinCE6.0\MC3000\MC3000AppSolution\MC3000AppSolution.sln">
+</Property><Property Name="Date" Value="27 พฤศจิกายน 2012">
+</Property><Property Name="Time" Value="15:58">
+</Property></Properties><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\AddOnMobileApplication.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\AddOnMobileApplication.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DriveThruApplication" Source="DriveThruApplication\DriveThruApplication.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DriveThruApplication" Source="DriveThruApplication\DriveThruApplication.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="MC3000AppSolution.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="MC3000AppSolution.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\Form1.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\Form1.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormBatchReOrder.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormBatchReOrder.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormCheckOut.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormCheckOut.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormCheckShelf.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormCheckShelf.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormCountStockDaily.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormCountStockDaily.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormLogIn.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormLogIn.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormMainApplication.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormMainApplication.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormMainMenu.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormMainMenu.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormPickUp.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormPickUp.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormPOS.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormPOS.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormPrintLabel.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormPrintLabel.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormReceiveItem.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormReceiveItem.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormReceiveItemAddShelfID.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormReceiveItemAddShelfID.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormRecMoney.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormRecMoney.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormReOrder.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormReOrder.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormShelfAddItem.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\FormShelfAddItem.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\My Project\Resources.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="AddOnMobileApplication" Source="AddOnMobileApplication\My Project\Resources.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="AddOnMobileApplication" Source="AddOnMobileApplication\AddOnMobileApplication.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

@@ -1,0 +1,11 @@
+bin\Debug\UpdateItemPrice.exe
+bin\Debug\UpdateItemPrice.pdb
+bin\Debug\UpdateItemPrice.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\UpdateItemPrice.FormLogIN.resources
+obj\Debug\UpdateItemPrice.FormMain.resources
+obj\Debug\UpdateItemPrice.Resources.resources
+obj\Debug\UpdateItemPrice.vbproj.GenerateResource.Cache
+obj\Debug\UpdateItemPrice.exe
+obj\Debug\UpdateItemPrice.xml
+obj\Debug\UpdateItemPrice.pdb

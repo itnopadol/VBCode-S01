@@ -1,0 +1,10 @@
+bin\Debug\PickUpApp.exe
+bin\Debug\PickUpApp.pdb
+bin\Debug\PickUpApp.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\PickUpApp.Resources.resources
+obj\Debug\PickUpApp.vbproj.GenerateResource.Cache
+obj\Debug\PickUpApp.exe
+obj\Debug\PickUpApp.xml
+obj\Debug\PickUpApp.pdb
+obj\Debug\PickUpApp.FrmPickup.resources

@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1C6990E6-5A73-4E6C-8266-7182F1E29C11}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>NopadolWindowsApp.My.MyApplication</StartupObject>
+    <RootNamespace>NopadolWindowsApp</RootNamespace>
+    <AssemblyName>NopadolWindowsApp</AssemblyName>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NopadolWindowsApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NopadolWindowsApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormApproveCommission.designer.vb">
+      <DependentUpon>FormApproveCommission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormApproveCommission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCEProgram.designer.vb">
+      <DependentUpon>FormCEProgram.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCEProgram.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemSetPriceStructure.designer.vb">
+      <DependentUpon>FormItemSetPriceStructure.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemSetPriceStructure.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogIn.designer.vb">
+      <DependentUpon>FormLogIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.designer.vb">
+      <DependentUpon>FormMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPayCommission.designer.vb">
+      <DependentUpon>FormPayCommission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPayCommission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportPaidComm.Designer.vb">
+      <DependentUpon>FormReportPaidComm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportPaidComm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReqCommission.designer.vb">
+      <DependentUpon>FormReqCommission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReqCommission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetCommCampaign.designer.vb">
+      <DependentUpon>FormSetCommCampaign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetCommCampaign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSmartPoint.Designer.vb">
+      <DependentUpon>FormSmartPoint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSmartPoint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormApproveCommission.resx">
+      <DependentUpon>FormApproveCommission.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCEProgram.resx">
+      <DependentUpon>FormCEProgram.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemSetPriceStructure.resx">
+      <DependentUpon>FormItemSetPriceStructure.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogIn.resx">
+      <DependentUpon>FormLogIn.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPayCommission.resx">
+      <DependentUpon>FormPayCommission.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportPaidComm.resx">
+      <DependentUpon>FormReportPaidComm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReqCommission.resx">
+      <DependentUpon>FormReqCommission.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetCommCampaign.resx">
+      <DependentUpon>FormSetCommCampaign.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSmartPoint.resx">
+      <DependentUpon>FormSmartPoint.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\192208.jpg" />
+    <Content Include="Resources\2.jpg" />
+    <Content Include="Resources\4.jpg" />
+    <Content Include="Resources\88.gif" />
+    <Content Include="Resources\bg.jpg" />
+    <Content Include="Resources\BillStatus.jpg" />
+    <Content Include="Resources\Cancel.jpg" />
+    <Content Include="Resources\chinese.jpg" />
+    <Content Include="Resources\chinese1.jpg" />
+    <Content Include="Resources\close1.jpg" />
+    <Content Include="Resources\Confirm.jpg" />
+    <Content Include="Resources\coupon1.JPG" />
+    <Content Include="Resources\coupon11.JPG" />
+    <Content Include="Resources\del.jpg" />
+    <Content Include="Resources\Delete.jpg" />
+    <Content Include="Resources\Dot.jpg" />
+    <Content Include="Resources\Dot1.jpg" />
+    <Content Include="Resources\excel.ico" />
+    <Content Include="Resources\Expert-Fair.jpg" />
+    <Content Include="Resources\Expert-Fair2.jpg" />
+    <Content Include="Resources\find.jpg" />
+    <Content Include="Resources\Gen.jpg" />
+    <Content Include="Resources\icon-16-checkin.png" />
+    <Content Include="Resources\LogoNopadol_144x50.JPG" />
+    <Content Include="Resources\New.jpg" />
+    <Content Include="Resources\print1.jpg" />
+    <Content Include="Resources\ptt-logo.jpg" />
+    <Content Include="Resources\save1.jpg" />
+    <Content Include="Resources\search.ico" />
+    <Content Include="Resources\TOON-XP %28My eBooks Folder%29.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 06.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 07.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 071.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 22.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 25.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 38.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 48.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 73.ico" />
+    <Content Include="Resources\TOON-XP Icons %28V1c%29 Icon 76.ico" />
+    <Content Include="Resources\Windows Explorer.ico" />
+    <Content Include="Resources\Windows Explorer1.ico" />
+    <Content Include="Resources\Windows_Explorer.ico" />
+    <Content Include="Resources\คูปองเงินสด.jpg" />
+    <Content Include="Resources\คูปองเงินสด1.jpg" />
+    <Content Include="Resources\ช่างชิงแชมป์.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

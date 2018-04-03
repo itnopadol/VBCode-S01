@@ -1,0 +1,10 @@
+bin\Debug\CheckOutApp.exe
+bin\Debug\CheckOutApp.pdb
+bin\Debug\CheckOutApp.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\CheckOutApp.Resources.resources
+obj\Debug\CheckOutApp.vbproj.GenerateResource.Cache
+obj\Debug\CheckOutApp.exe
+obj\Debug\CheckOutApp.xml
+obj\Debug\CheckOutApp.pdb
+obj\Debug\CheckOutApp.FrmCheckOut.resources

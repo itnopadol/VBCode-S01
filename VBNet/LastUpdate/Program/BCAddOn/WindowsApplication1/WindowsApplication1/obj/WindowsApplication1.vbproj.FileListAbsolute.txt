@@ -1,0 +1,14 @@
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form2.resources
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form3.resources
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form4.resources
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\BCAddOn\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Form5.resources

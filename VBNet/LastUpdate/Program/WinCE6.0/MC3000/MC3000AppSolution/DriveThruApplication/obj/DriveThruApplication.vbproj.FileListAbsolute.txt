@@ -1,0 +1,13 @@
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\bin\Debug\DriveThruApplication.exe
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\bin\Debug\DriveThruApplication.pdb
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\bin\Debug\DriveThruApplication.xml
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.Resources.resources
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.exe
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.xml
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.pdb
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.FormCheckOut.resources
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.FormLogIn.resources
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.FormMainApplication.resources
+D:\Work\Nopadol\Program\MC3000\MC3000AppSolution\DriveThruApplication\obj\Debug\DriveThruApplication.FormPickUp.resources

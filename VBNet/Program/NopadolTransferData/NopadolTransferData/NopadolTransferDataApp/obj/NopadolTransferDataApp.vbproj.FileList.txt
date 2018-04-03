@@ -1,0 +1,4 @@
+bin\Release\NopadolTransferDataApp.exe.config
+obj\Release\NopadolTransferDataApp.exe
+obj\Release\NopadolTransferDataApp.xml
+obj\Release\NopadolTransferDataApp.pdb

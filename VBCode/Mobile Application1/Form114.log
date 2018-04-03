@@ -1,0 +1,40 @@
+Line 115: Class Crystal.CrystalReport of control Crystal104 was not a loaded control class.
+Line 934: Class Crystal.CrystalReport of control Crystal101 was not a loaded control class.
+Line 947: Class Crystal.CrystalReport of control Crystal102 was not a loaded control class.
+Line 1043: Class Crystal.CrystalReport of control Crystal103 was not a loaded control class.
+Line 118: The property name _ExtentX in Crystal104 is invalid.
+Line 119: The property name _ExtentY in Crystal104 is invalid.
+Line 120: The property name _Version in Crystal104 is invalid.
+Line 121: The property name WindowControlBox in Crystal104 is invalid.
+Line 122: The property name WindowMaxButton in Crystal104 is invalid.
+Line 123: The property name WindowMinButton in Crystal104 is invalid.
+Line 124: The property name PrintFileLinesPerPage in Crystal104 is invalid.
+Line 125: The property name WindowShowPrintSetupBtn in Crystal104 is invalid.
+Line 126: The property name WindowShowRefreshBtn in Crystal104 is invalid.
+Line 937: The property name _ExtentX in Crystal101 is invalid.
+Line 938: The property name _ExtentY in Crystal101 is invalid.
+Line 939: The property name _Version in Crystal101 is invalid.
+Line 940: The property name WindowControlBox in Crystal101 is invalid.
+Line 941: The property name WindowMaxButton in Crystal101 is invalid.
+Line 942: The property name WindowMinButton in Crystal101 is invalid.
+Line 943: The property name PrintFileLinesPerPage in Crystal101 is invalid.
+Line 944: The property name WindowShowPrintSetupBtn in Crystal101 is invalid.
+Line 945: The property name WindowShowRefreshBtn in Crystal101 is invalid.
+Line 950: The property name _ExtentX in Crystal102 is invalid.
+Line 951: The property name _ExtentY in Crystal102 is invalid.
+Line 952: The property name _Version in Crystal102 is invalid.
+Line 953: The property name WindowControlBox in Crystal102 is invalid.
+Line 954: The property name WindowMaxButton in Crystal102 is invalid.
+Line 955: The property name WindowMinButton in Crystal102 is invalid.
+Line 956: The property name PrintFileLinesPerPage in Crystal102 is invalid.
+Line 957: The property name WindowShowPrintSetupBtn in Crystal102 is invalid.
+Line 958: The property name WindowShowRefreshBtn in Crystal102 is invalid.
+Line 1046: The property name _ExtentX in Crystal103 is invalid.
+Line 1047: The property name _ExtentY in Crystal103 is invalid.
+Line 1048: The property name _Version in Crystal103 is invalid.
+Line 1049: The property name WindowControlBox in Crystal103 is invalid.
+Line 1050: The property name WindowMaxButton in Crystal103 is invalid.
+Line 1051: The property name WindowMinButton in Crystal103 is invalid.
+Line 1052: The property name PrintFileLinesPerPage in Crystal103 is invalid.
+Line 1053: The property name WindowShowPrintSetupBtn in Crystal103 is invalid.
+Line 1054: The property name WindowShowRefreshBtn in Crystal103 is invalid.

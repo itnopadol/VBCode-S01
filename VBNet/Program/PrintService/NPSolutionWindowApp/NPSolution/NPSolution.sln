@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NPWindowApp", "NPWindowApp\NPWindowApp.vbproj", "{37B3D8B4-2C33-4501-8CD4-A72F1EBC35F9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "NPWindowAppSetup", "NPWindowAppSetup\NPWindowAppSetup.vdproj", "{ED4D3C55-E8C8-41BA-ACB7-91C20F4C2009}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BCAddOnExtensionSetup", "BCAddOnExtensionSetup\BCAddOnExtensionSetup.vdproj", "{AAD9B5A8-4D2D-4C17-B6C3-B2387063E0F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37B3D8B4-2C33-4501-8CD4-A72F1EBC35F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37B3D8B4-2C33-4501-8CD4-A72F1EBC35F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37B3D8B4-2C33-4501-8CD4-A72F1EBC35F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37B3D8B4-2C33-4501-8CD4-A72F1EBC35F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED4D3C55-E8C8-41BA-ACB7-91C20F4C2009}.Debug|Any CPU.ActiveCfg = Debug
+		{ED4D3C55-E8C8-41BA-ACB7-91C20F4C2009}.Release|Any CPU.ActiveCfg = Release
+		{AAD9B5A8-4D2D-4C17-B6C3-B2387063E0F9}.Debug|Any CPU.ActiveCfg = Debug
+		{AAD9B5A8-4D2D-4C17-B6C3-B2387063E0F9}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

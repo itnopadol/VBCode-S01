@@ -1,0 +1,10 @@
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\bin\Debug\DriveIn.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\bin\Debug\DriveIn.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\bin\Debug\DriveIn.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\obj\Debug\DriveIn.frmDriveIn.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\obj\Debug\DriveIn.Resources.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\obj\Debug\PocketPC.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\obj\Debug\DriveIn.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\obj\Debug\DriveIn.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PocketPC\obj\Debug\DriveIn.pdb

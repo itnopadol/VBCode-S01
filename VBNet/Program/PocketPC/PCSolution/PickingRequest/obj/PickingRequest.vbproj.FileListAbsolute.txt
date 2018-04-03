@@ -1,0 +1,10 @@
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\obj\Debug\PickingRequest.FormPickingRequest.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\obj\Debug\PickingRequest.Resources.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\obj\Debug\PickingRequest.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\bin\Debug\PickingRequest.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\bin\Debug\PickingRequest.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\bin\Debug\PickingRequest.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\obj\Debug\PickingRequest.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\obj\Debug\PickingRequest.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickingRequest\obj\Debug\PickingRequest.pdb

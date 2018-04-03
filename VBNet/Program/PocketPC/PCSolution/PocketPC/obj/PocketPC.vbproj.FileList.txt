@@ -1,0 +1,10 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\PocketPC.vbproj.GenerateResource.Cache
+bin\Debug\DriveIn.exe
+bin\Debug\DriveIn.pdb
+bin\Debug\DriveIn.xml
+obj\Debug\DriveIn.frmDriveIn.resources
+obj\Debug\DriveIn.Resources.resources
+obj\Debug\DriveIn.exe
+obj\Debug\DriveIn.xml
+obj\Debug\DriveIn.pdb

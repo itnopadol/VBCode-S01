@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\TransferDataSolutionWebApp\", "..\TransferDataSolutionWebApp\", "{261A12E8-EDF6-453D-9D3A-9D955A6E8D9C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/TransferDataSolutionWebApp"
+		Debug.AspNetCompiler.PhysicalPath = "..\TransferDataSolutionWebApp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\TransferDataSolutionWebApp\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/TransferDataSolutionWebApp"
+		Release.AspNetCompiler.PhysicalPath = "..\TransferDataSolutionWebApp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\TransferDataSolutionWebApp\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1742"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{261A12E8-EDF6-453D-9D3A-9D955A6E8D9C}.Debug|.NET.ActiveCfg = Debug|.NET
+		{261A12E8-EDF6-453D-9D3A-9D955A6E8D9C}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

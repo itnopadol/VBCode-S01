@@ -1,0 +1,31 @@
+Line 1096: Class Crystal.CrystalReport of control Crystal101 was not a loaded control class.
+Line 1240: Class Crystal.CrystalReport of control CrysPicking1 was not a loaded control class.
+Line 1254: Class Crystal.CrystalReport of control CrysPicking was not a loaded control class.
+Line 1099: The property name _ExtentX in Crystal101 is invalid.
+Line 1100: The property name _ExtentY in Crystal101 is invalid.
+Line 1101: The property name _Version in Crystal101 is invalid.
+Line 1102: The property name WindowControlBox in Crystal101 is invalid.
+Line 1103: The property name WindowMaxButton in Crystal101 is invalid.
+Line 1104: The property name WindowMinButton in Crystal101 is invalid.
+Line 1105: The property name PrintFileLinesPerPage in Crystal101 is invalid.
+Line 1106: The property name WindowShowPrintSetupBtn in Crystal101 is invalid.
+Line 1243: The property name _ExtentX in CrysPicking1 is invalid.
+Line 1244: The property name _ExtentY in CrysPicking1 is invalid.
+Line 1245: The property name _Version in CrysPicking1 is invalid.
+Line 1246: The property name WindowControlBox in CrysPicking1 is invalid.
+Line 1247: The property name WindowMaxButton in CrysPicking1 is invalid.
+Line 1248: The property name WindowMinButton in CrysPicking1 is invalid.
+Line 1249: The property name PrintFileLinesPerPage in CrysPicking1 is invalid.
+Line 1250: The property name WindowShowCloseBtn in CrysPicking1 is invalid.
+Line 1251: The property name WindowShowPrintSetupBtn in CrysPicking1 is invalid.
+Line 1252: The property name WindowShowRefreshBtn in CrysPicking1 is invalid.
+Line 1257: The property name _ExtentX in CrysPicking is invalid.
+Line 1258: The property name _ExtentY in CrysPicking is invalid.
+Line 1259: The property name _Version in CrysPicking is invalid.
+Line 1260: The property name WindowControlBox in CrysPicking is invalid.
+Line 1261: The property name WindowMaxButton in CrysPicking is invalid.
+Line 1262: The property name WindowMinButton in CrysPicking is invalid.
+Line 1263: The property name PrintFileLinesPerPage in CrysPicking is invalid.
+Line 1264: The property name WindowShowCloseBtn in CrysPicking is invalid.
+Line 1265: The property name WindowShowPrintSetupBtn in CrysPicking is invalid.
+Line 1266: The property name WindowShowRefreshBtn in CrysPicking is invalid.

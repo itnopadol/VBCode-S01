@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>DataWedge v2.01.02</title>
+<style>
+body, table { font-family:sans-serif; font-size:10pt; }
+li { padding:5px; }
+</style>
+</head>
+<body>
+<h2><a name="top"></a>DataWedge v2.01.02</h2>
+<hr>
+<h3>Contents</h3>
+<ul>
+<li><a href="#whatsnew">What's new in Version 2.01.02</a>
+<li><a href="#releasenotes">Release notes</a>
+<li><a href="#components">Components</a>
+<li><a href="#install">Installation</a>
+<li><a href="#usage">Usage Notes</a>
+<li><a href="#device">Device Updates</a>
+<li><a href="#knownissues">Known issues</a>
+</ul>
+<hr>
+<h3><a name="whatsnew"></a>What's new in version 2.01.02</h3>
+<blockquote>
+<p>DataWedge provides a convenient mechanism for non-scanning aware applications 
+to receive data from embedded or connected data capture devices. 
+DataWedge v2.01.02 builds on v2.00.00 to include the following new features...</p>
+<ul>
+<li>New Test Display Window with interchangeable Text/Hex formats and extra information
+<li>New Log Display Window with scrolling
+<li>Improved DataWedge Startup Time when MSR and RFID are present
+<li>Gen2 RFID Support is added.
+<li>Several other bug fixes:
+<ul>
+<li>Device Enable/Disable persistance over cold boot 
+<li>Virtual Key Support and few other issues in Prefix/Suffix
+<li>Smaller Controls for Feedback Parameters in order to accommodate broader edit boxes. 
+<li>Enhancements in MSR reading
+<li>Enable Serial Interface on startup
+<li>Event Based Serial Reading Capability added removing earlier polling based mechanism.
+<li>Delays regarding RFID are fixed
+<li>Double quote character in barcodes was scanned as Single quote
+<li>Tilda (~) character in barcodes caused abnormal behavior over Remote Desktop Client
+<li>Fixed Data Corruption issue in Binary mode ("Don't treat Data as Text"), where when you exit out of DW in Binary mode and run it later scanned barcodes got corrupted. 
+<li>CAPSLOCK state caused barcode alpha characters to change case (See Known Issues for some inconsistency in Windows Mobile)
+<li>Group Seperator character (0x1D) could not be sent to Remote Desktop. 
+</ul>
+</ul>
+<p>For the latest software updates, go to the Symbol Developer Zone web site at:</p>
+<blockquote><a href="http://devzone.symbol.com">http://devzone.symbol.com</a></blockquote>
+</blockquote>
+<p><br><a href="#top">Back to top</a></p>
+<hr>
+<h3><a name="releasenotes"></a>Release notes</h3>
+<blockquote>
+<p>Version 2.01.02</p>
+<ol>
+<li>New look Test Display Window with interchangeable Text/Hex formats and extra information
+<li>New look Log Display Window with scrolling
+<li>Earlier Test/Log Window (main window) is no longer used as a Display Window
+<li>New Look Controls for Feedback Parameters
+<li>Enhancements in MSR reading
+<li>RFID Gen2 Support (Please NOTE that You Need a GEN2 Enabled RFID Reader to Read GEN2 Tags. Also Note You would need to have the latest RFIDAPI32.dll (V 2.52a) to enable Gen2 Support)
+<li>Several Bug Fixes
+</ol>
+</blockquote>
+<p><br><a href="#top">Back to top</a></p>
+<hr>
+<h3><a name="components"></a>Components</h3>
+<blockquote>
+<p>The download package for DataWedge consists of the following components:</p>
+<table border=1 cellspacing=0 cellpadding=3>
+<tr><th>COMPONENT</th><th>Folder</th><th>DESCRIPTION</th></tr>
+<tr><td>Readme.html</td><td>&nbsp;</td><td>This file</td></tr>
+<tr><td>DataWedge User Guide.pdf</td><td>&nbsp;</td><td>User Guide</td></tr>
+<tr><td>DataWedge.exe</td><td>\Bin\PPC</td><td>Executable for PocketPC devices</td></tr>
+<tr><td>DataWedge.exe</td><td>\Bin\WCE</td><td>Executable for Windows CE devices</td></tr>
+<tr><td>DataWedge.cpy</td><td>\Application</td><td>CPY file used to copy the executable into the Windows folder</td></tr>
+<tr><td>DataWedge.run</td><td>\Application\Startup</td><td>RUN file used to automatically launch the application at startup</td></tr>
+</table>
+</blockquote>
+<p><br><a href="#top">Back to top</a></p>
+<hr>
+<h3><a name="install"></a>Installation</h3>
+<blockquote>
+<p>To install DataWedge so that it is launched automatically after a cold boot (clean boot for WM2005) , do the following:</p>
+<ol>
+<li>Unzip the DataWedge download package into a temporary folder on your PC
+<li>If installing on a <b>Pocket PC</b> device, copy "\Bin\PPC\DataWedge.exe" from your PC to the \Application folder on the device
+<li>If installing on a <b>Windows CE</b> device, copy "\Bin\WCE\DataWedge.exe" from your PC to the \Application folder on the device
+<li>Copy "\Application\DataWedge.cpy" from your PC to the \Application folder on the device
+<li>Copy "\Application\Startup\DataWedge.run" from your PC to the \Application\Startup folder on the device
+<li>Cold boot (clean boot for WM2005) the device
+</ol>
+</blockquote>
+<p><br><a href="#top">Back to top</a></p>
+<hr>
+<h3><a name="usage"></a>Usage Notes</h3>
+<blockquote>
+<ol>
+<li><b>MSR API</b> - In order to support the MSR, DataWedge requires the new MSR API (MSRAPI32.DLL)
+<li><b>MC 1000</b> - The user does not have access to the UI when using DataWedge on the MC 1000
+<li><b>RFID</b> - Support for RFID should be considered as beta; see known issues below
+<li><b>MK 2000</b> - Support for the MK 2000 in this version is in beta although there are no known issues
+</ol>
+</blockquote>
+<p><br><a href="#top">Back to top</a></p>
+<hr>
+<h3><a name="device"></a>Device Updates</h3>
+<blockquote>
+<p>Before using DataWedge with your mobile computer you may need to update certain drivers. 
+Refer to the DriverUpdateInfo.txt file located in "\Program Files\Symbol Mobility Developer Kit for eVC4\v1.4\DriverUpdates" 
+for more information about the individual files that can be updated and what devices are supported.</p>
+<p><b>MSRAPI32 Support</b></p>
+<p>In the event that a device in the field has not been updated to the latest MSR software, 
+you can update your device by copying the following files to the \Platform directory.</p>
+<ul>
+<li>MsrApi32.dll
+<li>MagStripe.cpy
+<li>MagStripe.reg
+</ul>
+<p><b>NOTE:</b> A cold boot (clean boot for WM2005) must be performed after any update to ensure the files have been installed properly.</p>
+<p><b>NOTE:</b> In Windows Mobile 2005, the \Platform does not exist. Hence the above files should be copied to \Application folder and .cpy file should be edited appropriately.</p>
+</blockquote>
+<p><br><a href="#top">Back to top</a></p>
+<hr>
+<h3><a name="knownissues"></a>Known issues</h3>
+<blockquote>
+<ol>
+<li>RFID support can be affected by hardware and firmware versions
+<li>On RFID devices with Platform version Plat0301074 DataWedge may not exit correctly; requiring a warm boot
+<li>On RFID devices with internal WJ module DataWedge may intermittently fail to detect/open the RFID module
+<li>The beep time in the feedback settings may not change the length of the beep on PDT8100 WM2003 devices
+<li>The barcode feedback menu may be missing the beep time and frequency fields on MC50 WM2003 devices
+<li>MSR Feedback Settings can’t be changed effectively. Watever the value we keep, the same parameter the hardware would work at. 
+<li>Barcode Feedback Setting "LED Time" can’t be changed effectively.
+<li>The '\f' and '\n' prefix/suffix characters may be ignored on CE4.2 devices
+<li>In Auto-PIE mode, after PIE has popped up and KeyBoard is on, if you kill PIE KeyBoard area becomes inactive. User should Hide the KeyBoard via "Hide Input Panel".
+<li>MC 3000 Dialog windows may appear imbalanced and too much oriented to the left side of the screen.
+<li>In WM when you connect to the TSC and then Enable CAPSLOCK, then type few characters while CAPS lock is on, then Close TSC with the X on right hand corner and Then again invoke TSC and scan a barcode, this will result in case Inversion.
+<li>If you check the option &quot;<span class="black">Send keys only to Pocket IE&quot; at 
+least for one scanner type, data from all four scanner types are diverted to 
+Pocket IE.</span><li><span class="black">If you select Serial Option &quot;Send data 
+after X seconds&quot; and set its timer to more than 2 seconds the data would not 
+be sent.</span></ol>
+</blockquote>
+<p><br><a href="#top">Back to top</a></p>
+<hr>
+<blockquote>
+<p>Last revised:  June 15, 2006</p>
+<p>Copyright &copy; 2004-2006<br>
+Symbol Technologies, Inc.<br>
+The Enterprise Mobility Company</p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+DriveIn
+</name>
+</assembly>
+<members>
+<member name="M:DriveIn.WebReference.WebServiceCalc.#ctor">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.HelloWorld">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.BeginHelloWorld(System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.EndHelloWorld(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.Calcurate(System.Double,System.Double)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.BeginCalcurate(System.Double,System.Double,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.EndCalcurate(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.vGetData(System.String)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.BeginvGetData(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.EndvGetData(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.vGetDataBarCode(System.String)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.BeginvGetDataBarCode(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.EndvGetDataBarCode(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.vExecuteQuery(System.String)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.BeginvExecuteQuery(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.EndvExecuteQuery(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.vGetQueryAnlyzer(System.String)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.BeginvGetQueryAnlyzer(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.EndvGetQueryAnlyzer(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.vLogIn(System.String,System.String)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.BeginvLogIn(System.String,System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:DriveIn.WebReference.WebServiceCalc.EndvLogIn(System.IAsyncResult)">
+	<remarks/>
+</member><member name="T:DriveIn.WebReference.WebServiceCalc">
+	<remarks/>
+</member><member name="P:DriveIn.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:DriveIn.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:DriveIn.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

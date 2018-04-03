@@ -1,0 +1,12 @@
+Line 32: Class Crystal.CrystalReport of control Crystal102 was not a loaded control class.
+Line 59: Class Crystal.CrystalReport of control Crystal101 was not a loaded control class.
+Line 35: The property name _ExtentX in Crystal102 is invalid.
+Line 36: The property name _ExtentY in Crystal102 is invalid.
+Line 37: The property name _Version in Crystal102 is invalid.
+Line 38: The property name PrintFileLinesPerPage in Crystal102 is invalid.
+Line 39: The property name WindowShowPrintSetupBtn in Crystal102 is invalid.
+Line 62: The property name _ExtentX in Crystal101 is invalid.
+Line 63: The property name _ExtentY in Crystal101 is invalid.
+Line 64: The property name _Version in Crystal101 is invalid.
+Line 65: The property name PrintFileLinesPerPage in Crystal101 is invalid.
+Line 66: The property name WindowShowPrintSetupBtn in Crystal101 is invalid.

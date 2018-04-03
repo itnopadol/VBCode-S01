@@ -1,0 +1,17 @@
+Line 117: Class MSComctlLib.ListView of control ListView101 was not a loaded control class.
+Line 123: The property name _ExtentX in ListView101 is invalid.
+Line 124: The property name _ExtentY in ListView101 is invalid.
+Line 125: The property name View in ListView101 is invalid.
+Line 126: The property name LabelWrap in ListView101 is invalid.
+Line 127: The property name HideSelection in ListView101 is invalid.
+Line 128: The property name FullRowSelect in ListView101 is invalid.
+Line 129: The property name GridLines in ListView101 is invalid.
+Line 130: The property name HotTracking in ListView101 is invalid.
+Line 131: The property name HoverSelection in ListView101 is invalid.
+Line 132: The property name _Version in ListView101 is invalid.
+Line 137: The property name NumItems in ListView101 is invalid.
+Line 141: The property name ColumnHeader(1) in ListView101 is invalid.
+Line 146: The property name ColumnHeader(2) in ListView101 is invalid.
+Line 151: The property name ColumnHeader(3) in ListView101 is invalid.
+Line 156: The property name ColumnHeader(4) in ListView101 is invalid.
+Line 161: The property name ColumnHeader(5) in ListView101 is invalid.

@@ -1,0 +1,10 @@
+bin\Debug\PickRequestApp.exe
+bin\Debug\PickRequestApp.pdb
+bin\Debug\PickRequestApp.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\PickRequestApp.Form1.resources
+obj\Debug\PickRequestApp.Resources.resources
+obj\Debug\PickRequestApp.vbproj.GenerateResource.Cache
+obj\Debug\PickRequestApp.exe
+obj\Debug\PickRequestApp.xml
+obj\Debug\PickRequestApp.pdb

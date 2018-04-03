@@ -1,0 +1,10 @@
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\bin\Debug\PickUpApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\bin\Debug\PickUpApp.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\bin\Debug\PickUpApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\obj\Debug\PickUpApp.FrmPickup.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\obj\Debug\PickUpApp.Resources.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\obj\Debug\PickUpApp.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\obj\Debug\PickUpApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\obj\Debug\PickUpApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickUpApp\obj\Debug\PickUpApp.pdb

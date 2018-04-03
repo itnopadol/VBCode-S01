@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{20A479ED-B4E0-41BC-BD86-A34A671686A6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>NopadolWindowsApp.My.MyApplication</StartupObject>
+    <RootNamespace>NopadolWindowsApp</RootNamespace>
+    <AssemblyName>NopadolWindowsApp</AssemblyName>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>NopadolWindowsApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>NopadolWindowsApp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialog1.Designer.vb">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgPSVdocSearch.Designer.vb">
+      <DependentUpon>dlgPSVdocSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dlgPSVdocSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgVolumeSearch.Designer.vb">
+      <DependentUpon>dlgVolumeSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dlgVolumeSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormApproveVolumeSet.Designer.vb">
+      <DependentUpon>FormApproveVolumeSet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormApproveVolumeSet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBudgetConfig.designer.vb">
+      <DependentUpon>FormBudgetConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBudgetConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBudgetTargetDepartmentConfig.designer.vb">
+      <DependentUpon>FormBudgetTargetDepartmentConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBudgetTargetDepartmentConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCalIncentive.designer.vb">
+      <DependentUpon>FormCalIncentive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCalIncentive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfirmOfPriceVolumeSet.Designer.vb">
+      <DependentUpon>FormConfirmOfPriceVolumeSet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConfirmOfPriceVolumeSet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCouponApprove.Designer.vb">
+      <DependentUpon>FormCouponApprove.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCouponApprove.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCouponReceive.Designer.vb">
+      <DependentUpon>FormCouponReceive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCouponReceive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCouponRecord.Designer.vb">
+      <DependentUpon>FormCouponRecord.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCouponRecord.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCouponRequest.Designer.vb">
+      <DependentUpon>FormCouponRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCouponRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImportDataPriceStructureFromExcel.Designer.vb">
+      <DependentUpon>FormImportDataPriceStructureFromExcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormImportDataPriceStructureFromExcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIncentiveRequest.designer.vb">
+      <DependentUpon>FormIncentiveRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormIncentiveRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIncentiveRequestDetails.designer.vb">
+      <DependentUpon>FormIncentiveRequestDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormIncentiveRequestDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogIn.designer.vb">
+      <DependentUpon>FormLogIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.designer.vb">
+      <DependentUpon>FormMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPayIncentive.designer.vb">
+      <DependentUpon>FormPayIncentive.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPayIncentive.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPriceStructure.designer.vb">
+      <DependentUpon>FormPriceStructure.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPriceStructure.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPriceStructureRequest.Designer.vb">
+      <DependentUpon>FormPriceStructureRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPriceStructureRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPriceVolumeSet.Designer.vb">
+      <DependentUpon>FormPriceVolumeSet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPriceVolumeSet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSaleHistory.designer.vb">
+      <DependentUpon>FormSaleHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSaleHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTeamIncentiveConfig.designer.vb">
+      <DependentUpon>FormTeamIncentiveConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTeamIncentiveConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateItemPrice.designer.vb">
+      <DependentUpon>FormUpdateItemPrice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateItemPrice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVolumeSetConfig.Designer.vb">
+      <DependentUpon>FormVolumeSetConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVolumeSetConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPriceVolumeSet.Designer.vb">
+      <DependentUpon>frmPriceVolumeSet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPriceVolumeSet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintVolumeSet.Designer.vb">
+      <DependentUpon>frmPrintVolumeSet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintVolumeSet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialog1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgPSVdocSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgPSVdocSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgVolumeSearch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dlgVolumeSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormApproveVolumeSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormApproveVolumeSet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBudgetConfig.resx">
+      <DependentUpon>FormBudgetConfig.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBudgetTargetDepartmentConfig.resx">
+      <DependentUpon>FormBudgetTargetDepartmentConfig.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCalIncentive.resx">
+      <DependentUpon>FormCalIncentive.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfirmOfPriceVolumeSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormConfirmOfPriceVolumeSet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCouponApprove.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCouponApprove.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCouponReceive.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCouponReceive.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCouponRecord.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCouponRecord.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCouponRequest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCouponRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImportDataPriceStructureFromExcel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormImportDataPriceStructureFromExcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIncentiveRequest.resx">
+      <DependentUpon>FormIncentiveRequest.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIncentiveRequestDetails.resx">
+      <DependentUpon>FormIncentiveRequestDetails.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogIn.resx">
+      <DependentUpon>FormLogIn.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPayIncentive.resx">
+      <DependentUpon>FormPayIncentive.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPriceStructure.resx">
+      <DependentUpon>FormPriceStructure.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPriceStructureRequest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPriceStructureRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPriceVolumeSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPriceVolumeSet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSaleHistory.resx">
+      <DependentUpon>FormSaleHistory.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTeamIncentiveConfig.resx">
+      <DependentUpon>FormTeamIncentiveConfig.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateItemPrice.resx">
+      <DependentUpon>FormUpdateItemPrice.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVolumeSetConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormVolumeSetConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPriceVolumeSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPriceVolumeSet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintVolumeSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPrintVolumeSet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Confirm.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dot1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dot.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 06.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows Explorer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 25.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Windows Explorer1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 07.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 76.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP %28My eBooks Folder%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 071.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 38.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 22.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TOON-XP Icons %28V1c%29 Icon 73.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoNopadol_144x50.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon-16-checkin.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

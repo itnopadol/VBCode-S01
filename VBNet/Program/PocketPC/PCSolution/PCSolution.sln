@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pic", "Pic", "{8CD6479A-F81E-4A36-9A3E-966FCE49F97C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CheckOutApp", "CheckOutApp\CheckOutApp.vbproj", "{76A7C3F3-5684-4BB4-9884-F85C90604570}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PickRequestApp", "PickRequestApp\PickRequestApp.vbproj", "{40C02F6B-862C-4136-AC13-383FA4CE2CAF}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PickUpApp", "PickUpApp\PickUpApp.vbproj", "{22A8D82D-EBD2-49BE-BBCA-267F9BD2BE79}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MobileApp", "MobileApp\MobileApp\MobileApp.vbproj", "{EF1F1735-ECEC-426B-9282-F01C01A85928}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PickingRequest", "PickingRequest\PickingRequest.vbproj", "{B214CB14-ECC2-4C2B-BF42-1C98D71433EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76A7C3F3-5684-4BB4-9884-F85C90604570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A7C3F3-5684-4BB4-9884-F85C90604570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A7C3F3-5684-4BB4-9884-F85C90604570}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{76A7C3F3-5684-4BB4-9884-F85C90604570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A7C3F3-5684-4BB4-9884-F85C90604570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76A7C3F3-5684-4BB4-9884-F85C90604570}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{40C02F6B-862C-4136-AC13-383FA4CE2CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C02F6B-862C-4136-AC13-383FA4CE2CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C02F6B-862C-4136-AC13-383FA4CE2CAF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{40C02F6B-862C-4136-AC13-383FA4CE2CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C02F6B-862C-4136-AC13-383FA4CE2CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C02F6B-862C-4136-AC13-383FA4CE2CAF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{22A8D82D-EBD2-49BE-BBCA-267F9BD2BE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A8D82D-EBD2-49BE-BBCA-267F9BD2BE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A8D82D-EBD2-49BE-BBCA-267F9BD2BE79}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{22A8D82D-EBD2-49BE-BBCA-267F9BD2BE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A8D82D-EBD2-49BE-BBCA-267F9BD2BE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A8D82D-EBD2-49BE-BBCA-267F9BD2BE79}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{EF1F1735-ECEC-426B-9282-F01C01A85928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1F1735-ECEC-426B-9282-F01C01A85928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1F1735-ECEC-426B-9282-F01C01A85928}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EF1F1735-ECEC-426B-9282-F01C01A85928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1F1735-ECEC-426B-9282-F01C01A85928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1F1735-ECEC-426B-9282-F01C01A85928}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B214CB14-ECC2-4C2B-BF42-1C98D71433EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B214CB14-ECC2-4C2B-BF42-1C98D71433EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B214CB14-ECC2-4C2B-BF42-1C98D71433EE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B214CB14-ECC2-4C2B-BF42-1C98D71433EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B214CB14-ECC2-4C2B-BF42-1C98D71433EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B214CB14-ECC2-4C2B-BF42-1C98D71433EE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

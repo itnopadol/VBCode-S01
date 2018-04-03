@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{54684C92-5589-4E36-A424-CF8A42AFD32A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>AddOnMobileApplication.FormLogIn</StartupObject>
+    <RootNamespace>AddOnMobileApplication</RootNamespace>
+    <AssemblyName>AddOnMobileApplication</AssemblyName>
+    <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <MyType>WindowsForms</MyType>
+    <DeployDirSuffix>AddOnMobileApplication</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+    <ApplicationIcon>Nopadol.ICO</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
+    <DocumentationFile>AddOnMobileApplication.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
+    <DocumentationFile>AddOnMobileApplication.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Symbol" />
+    <Reference Include="Symbol.Barcode" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Microsoft SQL Server Compact Edition\v3.5\Devices\Client\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBatchReOrder.Designer.vb">
+      <DependentUpon>FormBatchReOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormBatchReOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCheckOut.Designer.vb">
+      <DependentUpon>FormCheckOut.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCheckOut.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReqPromo.Designer.vb">
+      <DependentUpon>FormReqPromo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReqPromo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTestScan.Designer.vb">
+      <DependentUpon>FormTestScan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTestScan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCountStockDaily.Designer.vb">
+      <DependentUpon>FormCountStockDaily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCountStockDaily.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogIn.Designer.vb">
+      <DependentUpon>FormLogIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainApplication.Designer.vb">
+      <DependentUpon>FormMainApplication.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainApplication.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainMenu.Designer.vb">
+      <DependentUpon>FormMainMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPickUp.Designer.vb">
+      <DependentUpon>FormPickUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPickUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPOS.Designer.vb">
+      <DependentUpon>FormPOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrintLabel.Designer.vb">
+      <DependentUpon>FormPrintLabel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrintLabel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReceiveItem.Designer.vb">
+      <DependentUpon>FormReceiveItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReceiveItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPutAway.Designer.vb">
+      <DependentUpon>FormPutAway.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPutAway.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecMoney.Designer.vb">
+      <DependentUpon>FormRecMoney.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecMoney.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReOrder.Designer.vb">
+      <DependentUpon>FormReOrder.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShelfAddItem.Designer.vb">
+      <DependentUpon>FormShelfAddItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormShelfAddItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuleAddOn.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebReferenceS01\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\WebReferenceS02\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBatchReOrder.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormBatchReOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCheckOut.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCheckOut.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReqPromo.resx">
+      <DependentUpon>FormReqPromo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTestScan.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormTestScan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCountStockDaily.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormCountStockDaily.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogIn.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormLogIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainApplication.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMainApplication.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainMenu.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPickUp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPickUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPOS.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPOS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrintLabel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPrintLabel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReceiveItem.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormReceiveItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPutAway.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormPutAway.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecMoney.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormRecMoney.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReOrder.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormReOrder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShelfAddItem.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormShelfAddItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Nopadol.ICO" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="Web References\WebReferenceS02\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReferenceS02\webservicecalc.disco" />
+    <None Include="Web References\WebReferenceS01\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReferenceS01\webservicecalc.disco" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Web References\WebReferenceS01\webservicecalc.wsdl" />
+    <None Include="Web References\WebReferenceS02\webservicecalc.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://ws1.nopadol.com/webservicecalc.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\WebReferenceS01\</RelPath>
+      <UpdateFromURL>http://ws1.nopadol.com/webservicecalc.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://ws2.nopadol.com/webservicecalc.asmx">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\WebReferenceS02\</RelPath>
+      <UpdateFromURL>http://ws2.nopadol.com/webservicecalc.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v3.5'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
+</Project>

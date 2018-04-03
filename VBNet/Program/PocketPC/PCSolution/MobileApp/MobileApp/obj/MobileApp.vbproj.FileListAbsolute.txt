@@ -1,0 +1,14 @@
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.FrmMobileApp.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.Resources.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\bin\Debug\MobileApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\bin\Debug\MobileApp.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\bin\Debug\MobileApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.FrmItemData.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.FrmAddItemShelf.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.FrmCountStock.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\MobileApp\MobileApp\obj\Debug\MobileApp.FrmItemPrint.resources

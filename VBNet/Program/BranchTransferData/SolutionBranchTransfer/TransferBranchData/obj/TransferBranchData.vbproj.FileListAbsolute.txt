@@ -1,0 +1,10 @@
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\bin\Debug\TransferBranchData.exe
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\bin\Debug\TransferBranchData.pdb
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\bin\Debug\TransferBranchData.xml
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\obj\Debug\TransferBranchData.FormTrnDataBranchToNopadol.resources
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\obj\Debug\TransferBranchData.Resources.resources
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\obj\Debug\TransferBranchData.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\obj\Debug\TransferBranchData.exe
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\obj\Debug\TransferBranchData.xml
+D:\Work\Nopadol\Program\BranchTransferData\SolutionBranchTransfer\TransferBranchData\obj\Debug\TransferBranchData.pdb

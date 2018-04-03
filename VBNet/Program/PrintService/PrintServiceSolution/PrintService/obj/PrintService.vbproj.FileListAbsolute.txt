@@ -1,0 +1,11 @@
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\bin\Debug\PrintService.exe.config
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\obj\Debug\PrintService.Resources.resources
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\obj\Debug\PrintService.Service1.resources
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\obj\Debug\PrintService.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\bin\Debug\PrintService.exe
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\bin\Debug\PrintService.pdb
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\bin\Debug\PrintService.xml
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\obj\Debug\PrintService.exe
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\obj\Debug\PrintService.xml
+D:\Work\Nopadol\Program\PrintService\PrintServiceSolution\PrintService\obj\Debug\PrintService.pdb

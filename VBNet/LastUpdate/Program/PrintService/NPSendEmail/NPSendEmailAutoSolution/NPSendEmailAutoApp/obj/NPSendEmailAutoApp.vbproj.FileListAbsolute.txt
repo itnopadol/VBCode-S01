@@ -1,0 +1,14 @@
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.FrmSendEmailAuto.resources
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.Resources.resources
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\bin\Debug\NPSendEmailAutoApp.exe
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\bin\Debug\NPSendEmailAutoApp.pdb
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\bin\Debug\NPSendEmailAutoApp.xml
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.exe
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.xml
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.pdb
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\bin\Debug\NPSendEmailAutoApp.exe.manifest
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\bin\Debug\NPSendEmailAutoApp.application
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.exe.manifest
+D:\Work\Nopadol\Program\PrintService\NPSendEmail\NPSendEmailAutoSolution\NPSendEmailAutoApp\obj\Debug\NPSendEmailAutoApp.application

@@ -1,0 +1,33 @@
+Line 17: Class Crystal.CrystalReport of control Crystal102 was not a loaded control class.
+Line 31: Class Crystal.CrystalReport of control Crystal101 was not a loaded control class.
+Line 45: Class Crystal.CrystalReport of control CrystalReport021 was not a loaded control class.
+Line 20: The property name _ExtentX in Crystal102 is invalid.
+Line 21: The property name _ExtentY in Crystal102 is invalid.
+Line 22: The property name _Version in Crystal102 is invalid.
+Line 23: The property name WindowControlBox in Crystal102 is invalid.
+Line 24: The property name WindowMaxButton in Crystal102 is invalid.
+Line 25: The property name WindowMinButton in Crystal102 is invalid.
+Line 26: The property name PrintFileLinesPerPage in Crystal102 is invalid.
+Line 27: The property name WindowShowCloseBtn in Crystal102 is invalid.
+Line 28: The property name WindowShowPrintSetupBtn in Crystal102 is invalid.
+Line 29: The property name WindowShowRefreshBtn in Crystal102 is invalid.
+Line 34: The property name _ExtentX in Crystal101 is invalid.
+Line 35: The property name _ExtentY in Crystal101 is invalid.
+Line 36: The property name _Version in Crystal101 is invalid.
+Line 37: The property name WindowControlBox in Crystal101 is invalid.
+Line 38: The property name WindowMaxButton in Crystal101 is invalid.
+Line 39: The property name WindowMinButton in Crystal101 is invalid.
+Line 40: The property name PrintFileLinesPerPage in Crystal101 is invalid.
+Line 41: The property name WindowShowCloseBtn in Crystal101 is invalid.
+Line 42: The property name WindowShowPrintSetupBtn in Crystal101 is invalid.
+Line 43: The property name WindowShowRefreshBtn in Crystal101 is invalid.
+Line 48: The property name _ExtentX in CrystalReport021 is invalid.
+Line 49: The property name _ExtentY in CrystalReport021 is invalid.
+Line 50: The property name _Version in CrystalReport021 is invalid.
+Line 51: The property name WindowControlBox in CrystalReport021 is invalid.
+Line 52: The property name WindowMaxButton in CrystalReport021 is invalid.
+Line 53: The property name WindowMinButton in CrystalReport021 is invalid.
+Line 54: The property name PrintFileLinesPerPage in CrystalReport021 is invalid.
+Line 55: The property name WindowShowCloseBtn in CrystalReport021 is invalid.
+Line 56: The property name WindowShowPrintSetupBtn in CrystalReport021 is invalid.
+Line 57: The property name WindowShowRefreshBtn in CrystalReport021 is invalid.

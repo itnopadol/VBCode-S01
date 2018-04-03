@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\WebBCAddOn\", "..\..\..\..\..\งานเขียนโปรแกรม\WebBCAddOn\", "{22097224-DDBF-424E-AC9B-26FFEDA5230A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/WebBCAddOn"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\งานเขียนโปรแกรม\WebBCAddOn\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebBCAddOn\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/WebBCAddOn"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\งานเขียนโปรแกรม\WebBCAddOn\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\WebBCAddOn\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1866"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22097224-DDBF-424E-AC9B-26FFEDA5230A}.Debug|.NET.ActiveCfg = Debug|.NET
+		{22097224-DDBF-424E-AC9B-26FFEDA5230A}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

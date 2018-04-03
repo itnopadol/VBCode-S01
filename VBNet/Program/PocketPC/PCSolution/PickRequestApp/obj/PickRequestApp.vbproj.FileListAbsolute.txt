@@ -1,0 +1,10 @@
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\bin\Debug\PickRequestApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\bin\Debug\PickRequestApp.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\bin\Debug\PickRequestApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\obj\Debug\PickRequestApp.Resources.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\obj\Debug\PickRequestApp.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\obj\Debug\PickRequestApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\obj\Debug\PickRequestApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\obj\Debug\PickRequestApp.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\PickRequestApp\obj\Debug\PickRequestApp.FrmPickRequest.resources

@@ -1,0 +1,16 @@
+Line 60: Class MSComctlLib.ListView of control ListViewPRSearchSale was not a loaded control class.
+Line 219: Class MSComctlLib.ListView of control ListViewLastSendQue was not a loaded control class.
+Line 350: Class MSComctlLib.ListView of control ListViewPRSearchAR was not a loaded control class.
+Line 494: Class MSComctlLib.ListView of control ListViewPRSearchDocNo was not a loaded control class.
+Line 649: Class MSComctlLib.ListView of control ListViewInfQue was not a loaded control class.
+Line 840: Class MSComctlLib.ListView of control ListViewPRSearchItem was not a loaded control class.
+Line 1343: Class MSComctlLib.ListView of control ListViewStock was not a loaded control class.
+Line 1714: Class MSComctlLib.ListView of control ListViewItem was not a loaded control class.
+Line 2042: Class MSComctlLib.ListView of control ListViewDISearchDI was not a loaded control class.
+Line 2227: Class MSComctlLib.ListView of control ListViewDIInfQue was not a loaded control class.
+Line 2359: Class MSComctlLib.ListView of control ListViewDISearchSale was not a loaded control class.
+Line 2516: Class MSComctlLib.ListView of control ListViewDILastSendQue was not a loaded control class.
+Line 2661: Class MSComctlLib.ListView of control ListViewDISearchItem was not a loaded control class.
+Line 2821: Class MSComctlLib.ListView of control ListViewDISearchAR was not a loaded control class.
+Line 3030: Class MSComctlLib.ListView of control ListViewDIItemStock was not a loaded control class.
+Line 3556: Class MSComctlLib.ListView of control ListViewDIItem was not a loaded control class.

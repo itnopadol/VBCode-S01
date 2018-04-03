@@ -1,0 +1,115 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PrintService
+</name>
+</assembly>
+<members>
+<member name="M:PrintService.WebReference.WebServiceCalc.#ctor">
+	<remarks/>
+</member><member name="E:PrintService.WebReference.WebServiceCalc.HelloWorldCompleted">
+	<remarks/>
+</member><member name="E:PrintService.WebReference.WebServiceCalc.CalcurateCompleted">
+	<remarks/>
+</member><member name="E:PrintService.WebReference.WebServiceCalc.vGetDataCompleted">
+	<remarks/>
+</member><member name="E:PrintService.WebReference.WebServiceCalc.vGetDataBarCodeCompleted">
+	<remarks/>
+</member><member name="E:PrintService.WebReference.WebServiceCalc.vExecuteQueryCompleted">
+	<remarks/>
+</member><member name="E:PrintService.WebReference.WebServiceCalc.vGetQueryAnlyzerCompleted">
+	<remarks/>
+</member><member name="E:PrintService.WebReference.WebServiceCalc.vLogInCompleted">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.HelloWorld">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.HelloWorldAsync">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.HelloWorldAsync(System.Object)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.Calcurate(System.Double,System.Double)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.CalcurateAsync(System.Double,System.Double)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.CalcurateAsync(System.Double,System.Double,System.Object)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetData(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetDataBarCode(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetDataBarCodeAsync(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetDataBarCodeAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vExecuteQuery(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vExecuteQueryAsync(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vExecuteQueryAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetQueryAnlyzer(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetQueryAnlyzerAsync(System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vGetQueryAnlyzerAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vLogIn(System.String,System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vLogInAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.vLogInAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PrintService.WebReference.WebServiceCalc.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.WebServiceCalc">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.HelloWorldCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PrintService.WebReference.HelloWorldCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.HelloWorldCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.CalcurateCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PrintService.WebReference.CalcurateCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.CalcurateCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vGetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PrintService.WebReference.vGetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vGetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vGetDataBarCodeCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PrintService.WebReference.vGetDataBarCodeCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vGetDataBarCodeCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vExecuteQueryCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PrintService.WebReference.vExecuteQueryCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vExecuteQueryCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vGetQueryAnlyzerCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PrintService.WebReference.vGetQueryAnlyzerCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vGetQueryAnlyzerCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vLogInCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PrintService.WebReference.vLogInCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PrintService.WebReference.vLogInCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

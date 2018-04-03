@@ -1,0 +1,10 @@
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\bin\Debug\CheckOutApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\bin\Debug\CheckOutApp.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\bin\Debug\CheckOutApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\obj\Debug\CheckOutApp.FrmCheckOut.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\obj\Debug\CheckOutApp.Resources.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\obj\Debug\CheckOutApp.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\obj\Debug\CheckOutApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\obj\Debug\CheckOutApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CheckOutApp\obj\Debug\CheckOutApp.pdb

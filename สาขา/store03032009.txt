@@ -1,0 +1,2648 @@
+CREATE	procedure dbo.USP_NP_UpdatePayItemQtyQue
+@vQueID as int,
+@vItemCode as nvarchar(20),
+@vQty as money
+as
+
+set		dateformat dmy
+
+
+update	npmaster.dbo.tb_np_quepickcenterMaster
+set	quereceived = 1 ,querecstatus = 1
+where	queid = @vQueID and quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+
+
+update	npmaster.dbo.tb_np_quepickcenterSub
+set		oncarqty = @vQty
+where	queid = @vQueID and itemcode = @vItemCode  and quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+GO
+
+CREATE	procedure dbo.USP_NP_SearchQuePayItem
+@vType as int,
+@vZoneID as nvarchar(2),
+@vSearch as nvarchar(50)
+as
+
+set		dateformat dmy
+
+if	@vType = 0
+begin
+
+select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(a.memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.name1,'') as arname
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcar d on a.arcode = d.code
+where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and questatus = 2 and
+		invqty =0  and checkqty =0 and b.zoneid = @vZoneID and a.queid = @vSearch
+order	by b.linenumber
+end
+
+
+
+if	@vType = 1
+begin
+
+select	*
+from
+(
+select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(a.memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,b.linenumber,
+		isnull(d.name1,'') as arname
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcar d on a.arcode = d.code
+where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and questatus = 2 and 
+		invqty =0  and checkqty =0 and b.zoneid = @vZoneID and a.arcode like '%'+@vSearch+'%'
+
+union
+
+select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(a.memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,b.linenumber,
+		isnull(d.name1,'') as arname
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcar d on a.arcode = d.code
+where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and questatus = 2 and
+		invqty =0  and checkqty =0 and b.zoneid = @vZoneID and a.refno like '%'+@vSearch+'%'
+
+union
+
+select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(a.memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,b.linenumber,
+		isnull(d.name1,'') as arname
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcar d on a.arcode = d.code
+where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and questatus = 2 and
+		invqty =0  and checkqty =0 and b.zoneid = @vZoneID and isnull(a.memberid,'') like '%'+@vSearch+'%'
+/*
+union
+
+select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(a.memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.name1,'') as arname
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcar d on a.arcode = d.code
+where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and questatus = 2 and
+		invqty =0  and checkqty =0 and b.zoneid = @vZoneID and a.queid like '%'+@vSearch+'%'*/
+)		as result
+order	by queid,linenumber
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_CancelDriveInDocNo
+@vDocNo as nvarchar(50)
+
+as
+
+set		dateformat dmy
+
+declare	@vExist as int
+
+set		@vExist = (select isnull(count(docno),0) as vCount from npmaster.dbo.TB_NP_DriveInSlipMaster where docno = @vDocNo and iscancel = 0)
+
+if		@vExist <> 0 
+begin
+update	npmaster.dbo.TB_NP_DriveInSlipMaster  
+set		iscancel = 1
+where	docno = @vDocNo and iscancel = 0
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_InsertQuePickCenterDriveInSub
+@vQueID as int,
+@vQueDocDate as nvarchar(20),
+@vItemCode as nvarchar(20),
+@vWHCode as nvarchar(20),
+@vShelfCode as nvarchar(20),
+@vShelfID as nvarchar(20),
+@vZoneID as nvarchar(20),
+@vQTY as money,
+@vPickQTY as money,
+@vInvQTY as money,
+@vUnitcode as nvarchar(20),
+@vBarCode as nvarchar(20),
+@vRefNo as nvarchar(30),
+@vQueTime as int,
+@vLineNumber as int
+
+as
+
+set		dateformat dmy
+
+insert	into npmaster.dbo.TB_NP_QuePickCenterSub(QueID,QueDocDate,ItemCode,WHCode,ShelfCode,ShelfID,ZoneID,QTY,PickQTY,OnCarQTY,InvQTY,Unitcode,BarCode,RefNo,QueTime,LineNumber)
+values	(@vQueID,@vQueDocDate,@vItemCode,@vWHCode,@vShelfCode,@vShelfID,@vZoneID,@vQTY,@vQTY,@vQTY,0,@vUnitcode,@vBarCode,@vRefNo,@vQueTime,@vLineNumber)
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_InsertQuePickCenterMasterDriveIn
+@vQueID as int,
+@vQueDocDate as nvarchar(20),
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vARCode as nvarchar(30),
+@vSaleCode as nvarchar(30),
+@vRefNo as nvarchar(30),
+@vMemberID as nvarchar(20),
+@vSourceID as int,
+@vQueZone as nvarchar(10),
+@vIsConditionSend as int,
+@vQueReqTime as nvarchar(20),
+@vQueTime as int
+
+as
+
+set		dateformat dmy
+
+declare	@vExist as int
+
+set	@vExist = (select isnull(count(queid),0) as vcount from npmaster.dbo.TB_NP_QuePickCenterMaster where queid = @vQueID and QueDocDate =@vQueDocDate)
+
+if	@vExist = 0 
+begin
+insert	into npmaster.dbo.TB_NP_QuePickCenterMaster(QueID,QueDocDate,DocNo,DocDate,ARCode,SaleCode,RefNo,MemberID,SourceID,QueZone,QueDate,IsConditionSend,QueReqTime,QueStatus,QuePickStatus,QueRecStatus,QueReceived,QueDescription,QueTime)
+values	(@vQueID,@vQueDocDate,@vDocNo,@vDocDate,@vARCode,@vSaleCode,@vRefNo,@vMemberID,@vSourceID,@vQueZone,getdate(),@vIsConditionSend,@vQueReqTime,2,1,1,1,'รับของแล้ว',@vQueTime)
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchDriveInDetails
+@vDocNo as nvarchar(30)
+as
+
+set		dateformat dmy
+
+select	a.DocNo,a.DocDate,isnull(a.ARCode,'') as arcode,isnull(a.MemberID,'') as memberid,isnull(a.SaleCode,'') as salecode,
+		isnull(a.RefNo,'') as refno,isnull(PickZone,'') as PickZone,isnull(BeforeTaxAmount,0)as BeforeTaxAmount,isnull(TaxAmount,0) as TaxAmount,
+		isnull(TotalNetAmount,0) as TotalNetAmount,a.IsCancel,a.IsMerge,a.isconfirm,isnull(issendque,0)as issendque,
+		b.ItemCode,b.ItemName,b.WHCode,b.ShelfCode,isnull(b.ShelfID,'') as ShelfID,isnull(QTY,0) as qty,isnull(b.zoneid,'') as zoneid,
+		b.UnitCode,b.Price,isnull(b.DisCountWord,'') as DisCountWord,DisCountAmount,Amount,b.IsCancel as iscancelsub,isnull(b.BarCode,'') as barcode,
+		isnull(c.name1,'') as arname,isnull(d.name,'') as salename
+from	npmaster.dbo.TB_NP_DriveInSlipMaster a
+		left join npmaster.dbo.TB_NP_DriveInSlipSub b on a.DocNo = b.docno and a.DocDate = b.docdate
+		left join dbo.bcar c on a.arcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code 
+where	a.docno = @vDocNo
+order	by b.linenumber
+
+
+
+GO
+
+
+CREATE	procedure dbo.USP_AR_SearchARLine
+@ARCode as nvarchar(20)
+as
+
+set		dateformat dmy
+
+if		@ARCode = ''
+begin
+		select	top 100 a.createdatetime,a.code as arcode,isnull(a.name1,'') as arname,isnull(memberid,'') as memberid
+		from	dbo.bcar a 
+		where	a.activestatus = 1 
+		order	by a.createdatetime desc
+end
+
+if		@ARCode <> ''
+begin
+select	*
+from
+(
+select	a.code as arcode,isnull(a.name1,'') as arname,isnull(memberid,'') as memberid
+from	dbo.bcar a 
+where	a.activestatus = 1 and a.code like '%'+@ARCode+'%'
+union
+select	a.code as arcode,isnull(a.name1,'') as arname,isnull(memberid,'') as memberid
+from	dbo.bcar a 
+where	a.activestatus = 1 and a.name1 like '%'+@ARCode+'%'
+union
+select	a.code as arcode,isnull(a.name1,'') as arname,isnull(memberid,'') as memberid
+from	dbo.bcar a 
+where	a.activestatus = 1 and a.memberid like '%'+@ARCode+'%'
+) as	result
+order	by arcode
+end
+
+GO
+
+
+create	procedure dbo.USP_AR_SearchAR
+@vARCode as nvarchar(30)
+as
+
+set		dateformat dmy
+
+select	a.code as arcode,isnull(a.name1,'') as arname,isnull(memberid,'') as memberid
+from	dbo.bcar a 
+where	a.activestatus = 1 and a.code = @vARCode
+GO
+
+
+CREATE	procedure dbo.USP_AR_SearchMemberID
+@vMemberID as nvarchar(30)
+as
+
+set		dateformat dmy
+
+select	a.code as arcode,isnull(a.name1,'') as arname,isnull(memberid,'') as memberid
+from	dbo.bcar a 
+where	a.activestatus = 1 and a.memberid = @vMemberID
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchPrintPicking
+@vQueNo as int,
+@vQueDocDate as nvarchar(20)
+as
+
+set		dateformat dmy
+
+select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'')as refno,isnull(a.memberid,'') as memberid,a.sourceid,
+		a.isconditionsend,a.quezone,a.quedate,a.questatus,a.quereqtime,a.quetime,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.unitcode,
+		isnull(d.name1,'') as arname,isnull(e.name,'') as salename,isnull(f.qty/isnull(g.rate1,0),0) as stkqty,
+		isnull(g.rate1,0) as rate1,isnull(g.rate2,0) as rate2,isnull(h.shelfcode,'-') as shelfid
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid = b.queid and a.quedocdate = b.quedocdate 
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcar d on a.arcode = d.code
+		left join dbo.bcsale e on a.salecode = e.code
+		left join dbo.bcstkpacking g on b.itemcode = g.itemcode and b.unitcode = g.unitcode
+		left join dbo.bcstklocation f on b.itemcode = f.itemcode and b.whcode = f.whcode and b.shelfcode = f.shelfcode
+		left join dbo.bcrecproduct2 h on b.itemcode = h.productcode and b.whcode = h.whcode and b.shelfcode = h.fiscalshelf
+where	a.queid = @vQueNo and a.quedocdate = @vQueDocDate 
+order	by b.linenumber
+
+
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchHodingBillDetails
+@vDocNo as nvarchar(30)
+
+as
+
+set		dateformat dmy
+
+select	a.docno,a.docdate,a.arcode,a.salecode,a.cashiercode,a.shiftno,a.machineno,a.machinecode,a.sumofitemamount,a.discountamount,a.taxamount,
+		a.totalamount,b.itemcode,isnull(f.name1,'') as itemname,b.whcode,b.shelfcode,b.qty,b.price,b.discountword,b.discountamount,b.amount,b.unitcode,b.sorefno,
+		b.linenumber,b.barcode,isnull(c.name1,'') as arname,isnull(d.name,'') as salename,1 as rate1,1 as rate2,
+		isnull((select top 1 sourceid from npmaster.dbo.TB_NP_QuePickCenterMaster e where b.sorefno = docno order by queid desc),0) as type
+from	bcnpdisa.dbo.bpsholdingbill a 
+		left join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code 
+		left join dbo.bcsale e on a.cashiercode = e.code 
+		left join dbo.bcitem f on b.itemcode = f.code
+where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by b.linenumber
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchHodingBill
+@vSearch as nvarchar(50)
+as
+
+set		dateformat dmy
+
+if		@vSearch = ''
+begin
+select	distinct 
+		a.docno,a.docdate,a.arcode,isnull(c.name1,'') as arname,a.salecode,isnull(d.name,'') as salename,
+		a.cashiercode,isnull(e.name,'') as cashiername,a.machineno,a.netdebtamount
+from	bcnpdisa.dbo.bpsholdingbill a
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code 
+		left join dbo.bcsale e on a.cashiercode = e.code 
+where	a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by a.docno
+end
+
+if		@vSearch <> ''
+begin
+select	*
+from 
+(
+select	distinct 
+		a.docno,a.docdate,a.arcode,isnull(c.name1,'') as arname,a.salecode,isnull(d.name,'') as salename,
+		a.cashiercode,isnull(e.name,'') as cashiername,a.machineno,a.netdebtamount
+from	bcnpdisa.dbo.bpsholdingbill a
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code 
+		left join dbo.bcsale e on a.cashiercode = e.code 
+where	a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) and
+		a.docno like '%'+@vSearch+'%'
+union
+select	distinct 
+		a.docno,a.docdate,a.arcode,isnull(c.name1,'') as arname,a.salecode,isnull(d.name,'') as salename,
+		a.cashiercode,isnull(e.name,'') as cashiername,a.machineno,a.netdebtamount
+from	bcnpdisa.dbo.bpsholdingbill a
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code 
+		left join dbo.bcsale e on a.cashiercode = e.code 
+where	a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		a.arcode like '%'+@vSearch+'%'
+union
+select	distinct 
+		a.docno,a.docdate,a.arcode,isnull(c.name1,'') as arname,a.salecode,isnull(d.name,'') as salename,
+		a.cashiercode,isnull(e.name,'') as cashiername,a.machineno,a.netdebtamount
+from	bcnpdisa.dbo.bpsholdingbill a
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code 
+		left join dbo.bcsale e on a.cashiercode = e.code 
+where	a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		a.salecode like '%'+@vSearch+'%'
+union
+select	distinct 
+		a.docno,a.docdate,a.arcode,isnull(c.name1,'') as arname,a.salecode,isnull(d.name,'') as salename,
+		a.cashiercode,isnull(e.name,'') as cashiername,a.machineno,a.netdebtamount
+from	bcnpdisa.dbo.bpsholdingbill a
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code 
+		left join dbo.bcsale e on a.cashiercode = e.code 
+where	a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		c.name1 like '%'+@vSearch+'%'
+union
+select	distinct 
+		a.docno,a.docdate,a.arcode,isnull(c.name1,'') as arname,a.salecode,isnull(d.name,'') as salename,
+		a.cashiercode,isnull(e.name,'') as cashiername,a.machineno,a.netdebtamount
+from	bcnpdisa.dbo.bpsholdingbill a
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code 
+		left join dbo.bcsale e on a.cashiercode = e.code 
+where	a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		d.name like '%'+@vSearch+'%'
+) as	a
+order	by docno
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_DeleteHoldingBill
+@vType as int,
+@vDocNo as nvarchar(30)
+
+as
+
+set		dateformat dmy
+declare	@vCheckExist as int
+
+set		@vCheckExist = (select isnull(count(docno),0) as vcount from bcnpdisa.dbo.bpsholdingbill where docno = @vDocno)
+
+
+if	@vType = 1
+begin
+	if		@vCheckExist > 0
+	begin
+	update	npmaster.dbo.TB_NP_QuePickCenterMaster
+	set		isconfirm = 0,mergeno = null,holdbillno = null
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_PickingRequestMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_PickingRequestSub d on c.docno = d.docno and b.itemcode = d.itemcode 	
+			inner join npmaster.dbo.TB_NP_QuePickCenterSub e on a.docno = e.holdbillno and c.docno = e.refno and d.itemcode = e.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterMaster f on e.queid = f.queid and e.quedocdate = f.quedocdate
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+			c.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	
+	update	npmaster.dbo.TB_NP_QuePickCenterSub
+	set		mergeno = null,holdbillno = null,checkqty = 0 ,invqty = 0
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_PickingRequestMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_PickingRequestSub d on c.docno = d.docno and b.itemcode = d.itemcode 	
+			inner join npmaster.dbo.TB_NP_QuePickCenterSub e on a.docno = e.holdbillno and c.docno = e.refno and d.itemcode = e.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterMaster f on e.queid = f.queid and e.quedocdate = f.quedocdate
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+			c.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	update	npmaster.dbo.TB_NP_DriveInMergeTemp
+	set		isconfirm = 0,posbillno = null
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_PickingRequestMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_PickingRequestSub d on c.docno = d.docno and b.itemcode = d.itemcode 	
+			inner join npmaster.dbo.TB_NP_DriveInMergeTemp e on b.itemcode = e.itemcode and c.docno = e.refno and a.docno = e.posbillno
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+			c.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	delete	bcnpdisa.dbo.bpsholdingbill where docno = @vDocNo
+	delete	bcnpdisa.dbo.bpsholdingbillsub where docno = @vDocNo
+	end
+end
+
+if	@vType = 2
+begin
+	if		@vCheckExist > 0
+	begin
+	update	npmaster.dbo.TB_NP_QuePickCenterMaster
+	set		isconfirm = 0,mergeno = null,holdbillno = null
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_QueueRequestPickingMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_QueueRequestPicking d on c.docno = d.docno and b.itemcode = d.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterSub e on a.docno = e.holdbillno and c.docno = e.refno and d.itemcode = e.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterMaster f on e.queid = f.queid and e.quedocdate = f.quedocdate
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	update	npmaster.dbo.TB_NP_QuePickCenterSub
+	set		mergeno = null,holdbillno = null,checkqty = 0 ,invqty = 0
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_QueueRequestPickingMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_QueueRequestPicking d on c.docno = d.docno and b.itemcode = d.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterSub e on a.docno = e.holdbillno and c.docno = e.refno and d.itemcode = e.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterMaster f on e.queid = f.queid and e.quedocdate = f.quedocdate
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	update	npmaster.dbo.TB_NP_DriveInMergeTemp
+	set		isconfirm = 0,posbillno = null
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_QueueRequestPickingMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_QueueRequestPicking d on c.docno = d.docno and b.itemcode = d.itemcode 
+			inner join npmaster.dbo.TB_NP_DriveInMergeTemp e on b.itemcode = e.itemcode and c.docno = e.refno and a.docno = e.posbillno
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	delete	bcnpdisa.dbo.bpsholdingbill where docno = @vDocNo
+	delete	bcnpdisa.dbo.bpsholdingbillsub where docno = @vDocNo
+	end
+end
+
+if	@vType = 3
+begin
+	if		@vCheckExist > 0
+	begin
+	update	npmaster.dbo.TB_NP_QuePickCenterMaster
+	set		isconfirm = 0,mergeno = null,holdbillno = null
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_DriveInSlipMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_DriveInSlipSub d on c.docno = d.docno and b.itemcode = d.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterSub e on a.docno = e.holdbillno and c.docno = e.refno and d.itemcode = e.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterMaster f on e.queid = f.queid and e.quedocdate = f.quedocdate
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	update	npmaster.dbo.TB_NP_QuePickCenterSub
+	set		mergeno = null,holdbillno = null,checkqty = 0 ,invqty = 0
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_DriveInSlipMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_DriveInSlipSub d on c.docno = d.docno and b.itemcode = d.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterSub e on a.docno = e.holdbillno and c.docno = e.refno and d.itemcode = e.itemcode 
+			inner join npmaster.dbo.TB_NP_QuePickCenterMaster f on e.queid = f.queid and e.quedocdate = f.quedocdate
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	update	npmaster.dbo.TB_NP_DriveInMergeTemp
+	set		isconfirm = 0,posbillno = null
+	from	bcnpdisa.dbo.bpsholdingbill a 
+			inner join bcnpdisa.dbo.bpsholdingbillsub b on a.docno = b.docno and a.docdate = b.docdate 
+			inner join npmaster.dbo.TB_NP_DriveInSlipMaster c on b.sorefno = c.docno 
+			inner join npmaster.dbo.TB_NP_DriveInSlipSub d on c.docno = d.docno and b.itemcode = d.itemcode 
+			inner join npmaster.dbo.TB_NP_DriveInMergeTemp e on b.itemcode = e.itemcode and c.docno = e.refno and a.docno = e.posbillno
+	where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	
+	
+	delete	bcnpdisa.dbo.bpsholdingbill where docno = @vDocNo
+	delete	bcnpdisa.dbo.bpsholdingbillsub where docno = @vDocNo
+	end
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdateHoldBillQtyQue
+@vMergeNo as nvarchar(30),
+@vHoldBillNo as nvarchar(30),
+@vCashierCode as nvarchar(30),
+@vItemCode as nvarchar(20),
+@vInvQty as money
+as
+
+set		dateformat dmy
+
+declare	@vCalcQTY as money
+
+
+update	npmaster.dbo.tb_np_quepickcentermaster
+set		holdbillno = @vHoldBillNo,isconfirm = 1,cashiercode = @vCashierCode
+where	queid in (	 
+				select	queid 
+				from	npmaster.dbo.tb_np_driveinmergetemp
+				where	docno = @vMergeNo and 
+						docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+				) and quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+
+
+update	npmaster.dbo.tb_np_quepickcenterSub
+set		invqty = @vInvQty,holdbillno = @vHoldBillNo
+where	queid in (	 
+				select	queid 
+				from	npmaster.dbo.tb_np_driveinmergetemp
+				where	docno = @vMergeNo and 
+						docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) and 
+						itemcode = @vItemCode 
+				) and itemcode = @vItemCode  and quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdateCheckQtyQue
+@vMergeNo as nvarchar(30),
+@vUserID as nvarchar(30),
+@vItemCode as nvarchar(20),
+@vCheckQty as money
+as
+
+set		dateformat dmy
+
+declare	@vCalcQTY as money
+
+
+update	npmaster.dbo.tb_np_quepickcentermaster
+set		mergeno = @vMergeNo,checker = @vUserID,checkoutdatetime = getdate()
+where	queid in (	 
+				select	queid 
+				from	npmaster.dbo.tb_np_driveinmergetemp
+				where	docno = @vMergeNo and 
+						docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+				) and quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+
+
+update	npmaster.dbo.tb_np_quepickcenterSub
+set		checkqty = @vCheckQty,mergeno = @vMergeNo
+where	queid in (	 
+				select	queid 
+				from	npmaster.dbo.tb_np_driveinmergetemp
+				where	docno = @vMergeNo and 
+						docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) and 
+						itemcode = @vItemCode 
+				) and itemcode = @vItemCode  and quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+GO
+
+
+CREATE	procedure dbo.USP_NP_InsertOrderPickHoldBillSub
+@vDocNo as nvarchar(20),
+@vDocDate as nvarchar(20),
+@vDatePicking as nvarchar(20),
+@vItemCode as nvarchar(20),
+@vItemName as nvarchar(200),
+@vReqQTY as money,
+@vUnitCode as nvarchar(20),
+@vWHCode as nvarchar(10),
+@vShelfCode as nvarchar(15),
+@vZoneID as nvarchar(10),
+@vIsCancel as smallint,
+@vSelectItemDateTime as nvarchar(20),
+@vSOCountNumber as int,
+@vPrice as money,
+@vDiscountAmount as money,
+@vItemAmount as money,
+@vLineNumber as int
+
+as
+
+set		dateformat dmy
+
+insert	into npmaster.dbo.TB_NP_QueueRequestPicking(DocNo,DocDate,DatePicking,ItemCode,ItemName,ReqQTY,UnitCode,WHCode,ShelfCode,ZoneID,IsCancel,SelectItemDateTime,SOCountNumber,Price,DiscountAmount,ItemAmount,LineNumber)
+values(@vDocNo,@vDocDate,@vDatePicking,@vItemCode,@vItemName,@vReqQTY,@vUnitCode,@vWHCode,@vShelfCode,@vZoneID,@vIsCancel,@vSelectItemDateTime,@vSOCountNumber,@vPrice,@vDiscountAmount,@vItemAmount,@vLineNumber)
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_InsertOrderPickHoldBill
+@vDocNo as nvarchar(20),
+@vDocDate as nvarchar(20),
+@vARCode as nvarchar(20),
+@vDatePicking as nvarchar(20),
+@vBillType as smallint,
+@vSOStatus as smallint,
+@vIsCancel as smallint,
+@vSaleCode as nvarchar(20),
+@vCarLicense as nvarchar(20),
+@vIsConditionSend as smallint,
+@vSOCountNumber as int,
+@vShelfGroup as nvarchar(10),
+@vDueDate as nvarchar(20),
+@vPickStatus as smallint,
+@vSumOfItemAmount as money,
+@vTaxAmount as money,
+@vNetAmount as money,
+@vUserID as nvarchar(50)
+
+as
+
+declare	@vCheckExist as int
+set		dateformat dmy
+set		@vCheckExist = (select isnull(count(docno),0) as vCount from npmaster.dbo.TB_NP_QueueRequestPickingMaster where docno = @vDocNo and docdate = @vDocDate and SOCountNumber = @vSOCountNumber and shelfgroup = @vShelfGroup)
+
+if		@vCheckExist = 0 
+begin
+insert	into	npmaster.dbo.TB_NP_QueueRequestPickingMaster(DocNo,DocDate,ARCode,DatePicking,BillType,SOStatus,IsCancel,SaleCode,CarLicense,IsConditionSend,SOCountNumber,shelfgroup,DueDate,PickStatus,SumOfItemAmount,TaxAmount,NetAmount,CreatorCode,CreateDateTime)
+values	(@vDocNo,@vDocDate,@vARCode,@vDatePicking,@vBillType,@vSOStatus,@vIsCancel,@vSaleCode,@vCarLicense,@vIsConditionSend,@vSOCountNumber,@vShelfGroup,@vDueDate,@vPickStatus,@vSumOfItemAmount,@vTaxAmount,@vNetAmount,@vUserID,getdate())
+end
+
+/*
+if		@vCheckExist > 0 
+begin
+update	npmaster.dbo.TB_NP_QueueRequestPickingMaster
+set		CarLicense = @vCarLicense
+where	docno = @vDocNo and docdate = @vDocDate and SOCountNumber = @vSOCountNumber and shelfgroup = @vShelfGroup 
+
+delete	npmaster.dbo.TB_NP_QueueRequestPicking where	docno = @vDocNo and docdate = @vDocDate and SOCountNumber = @vSOCountNumber 
+end
+*/
+
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchSaleOrderGroupShelf
+@vDocNo as nvarchar(20)
+as
+
+set		dateformat dmy
+set		language us_english
+
+select	distinct a.docno,zoneid as shelfgroup
+from	dbo.bcsaleorder a
+		left join dbo.bcsaleordersub b on a.docno = b.docno and a.docdate = b.docdate and a.arcode = b.arcode 
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_CategoryPickingZone d on c.categorycode = d.categorycode
+where	a.docno = @vDocNo and a.iscancel = 0 --and a.billstatus = 0 
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchSaleOrder
+@vDocNo as nvarchar(20)
+as
+
+set		dateformat dmy
+
+select	a.docno,a.docdate,a.arcode,a.salecode,a.billtype,a.billstatus,a.sostatus,a.sumofitemamount,isnull(a.discountword,'') as discountword,a.discountamount,
+		a.taxamount,a.totalamount,a.netamount,a.creatorcode,a.createdatetime,a.isconditionsend,
+		b.itemcode,b.itemname,b.whcode,b.shelfcode,b.qty,b.qty as remainqty,b.price,isnull(b.discountword,'') as discountwordsub,
+		(b.discountamount/b.qty) as discountamountsub,b.amount,b.netamount as netamountsub,b.unitcode,b.packingrate1,b.packingrate2,b.itemtype,
+		isnull(c.name1,'') as arname,isnull(d.name,'') as salename,isnull(f.zoneid,'X') as zoneid,
+		isnull((select top 1 shelfcode as shelfid from dbo.bcrecproduct2 where b.itemcode = productcode and b.whcode = whcode and b.shelfcode = fiscalshelf order by roworder desc),'-') as ShelfID
+from	dbo.bcsaleorder a
+		left join dbo.bcsaleordersub b on a.docno = b.docno and a.docdate = b.docdate and a.arcode = b.arcode
+		left join dbo.bcar c on a.arcode = c.code 
+		left join dbo.bcsale d on a.salecode = d.code
+		left join dbo.bcitem e on b.itemcode = e.code
+		left join npmaster.dbo.TB_NP_CategoryPickingZone f on e.categorycode = f.categorycode
+where	a.docno =@vDocNo and a.iscancel = 0 --and billstatus = 0 and b.remainqty > 0
+order	by b.linenumber
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdateDriveInMergeTempConfirm
+@vDocNo nvarchar(20),
+@vDocDate nvarchar(20),
+@vItemCode nvarchar(30),
+@vPosNo as nvarchar(30)
+
+as
+
+set		dateformat dmy
+
+update	npmaster.dbo.TB_NP_DriveInMergeTemp
+set		isconfirm = 1,posbillno = @vPosNo,confirmdatetime = getdate()
+where	docno = @vDocNo and docdate = @vDocDate and itemcode = @vItemCode
+
+GO
+
+
+CREATE	procedure dbo.usp_np_SearchReqPickingInformationLastSend
+@vDocNo as nvarchar(30),
+@vQueDocDate as nvarchar(20),
+@vTimeID as int
+as
+
+set		dateformat dmy
+
+
+select	a.queid,b.quedocdate,a.docno,a.quedate,b.itemcode,isnull(c.name1,'') as itemname,isnull(b.qty,0) as qty,isnull(b.pickqty,0) as pickqty,b.unitcode,
+		quezone,isnull(a.quepicker,'') as quepicker, 
+		case	when questatus = 2 and qty > pickqty then 'ไม่ครบ' 
+				when questatus = 2 and qty = pickqty then 'ครบ' 
+				when questatus = 2 and qty < pickqty then 'เกิน'
+				else  isnull(a.quedescription,'') 
+		end		as quedescription
+
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid = b.queid and a.quedocdate = b.quedocdate and a.quetime = b.quetime
+		left join dbo.bcitem c on b.itemcode = c.code
+where	a.docno = @vDocNo and a.quedocdate = @vQueDocDate and 
+		a.quetime = @vTimeID-- (select top 1 isnull(quetime,0) as quetime from npmaster.dbo.TB_NP_QuePickCenterMaster where docno = @vDocNo and quedocdate = @vQueDocDate order by quetime desc)
+order	by a.quedocdate,a.queid
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdateQueReceived
+@vQueID as int,
+@vQueDocDate as nvarchar(20),
+@vSaleOrderNo as nvarchar(25),
+@vStatus as smallint,
+@vDescription as nvarchar(300)
+
+as
+set	dateformat dmy
+
+declare	@vCheckDescription as int
+declare @vDescriptionExist as nvarchar(300)
+
+set	@vCheckDescription = (select top 1 isnull(len(quereasondesc),0) as vLen from npmaster.dbo.TB_NP_QuePickCenterMaster  where queid =@vQueID  and quedocdate = @vQueDocDate and docno = @vSaleOrderNo)
+
+if 	@vCheckDescription > 0 
+begin
+set		@vDescriptionExist = (select ltrim(rtrim(quereasondesc))+'/'+ltrim(rtrim(@vDescription)) as mydescription from npmaster.dbo.TB_NP_QuePickCenterMaster  where queid =@vQueID  and quedocdate = @vQueDocDate and docno = @vSaleOrderNo)
+update 	npmaster.dbo.TB_NP_QuePickCenterMaster 
+set 	quereceived = 1,querecstatus = @vStatus,querecdate = getdate(),quereasondesc = @vDescriptionExist
+where 	queid =@vQueID  and quedocdate = @vQueDocDate and docno = @vSaleOrderNo
+end
+
+if 	@vCheckDescription = 0 
+begin
+update 	npmaster.dbo.TB_NP_QuePickCenterMaster 
+set 	quereceived = 1,querecstatus =@vStatus,querecdate = getdate(),quereasondesc = @vDescription
+where 	queid =@vQueID  and quedocdate = @vQueDocDate and docno = @vSaleOrderNo
+end
+
+GO
+
+CREATE procedure dbo.USP_NP_SearchQueCheckOut
+@vType as int,
+@vSearch as nvarchar(50)
+as
+
+set	dateformat dmy
+
+
+if	@vType = 1
+begin
+	if	@vSearch = ''
+	begin
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.barcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_PickingRequestSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 1 --a.isconfirm = 0 and 
+	order	by a.queid 
+	end
+	
+	if	@vSearch <> ''
+	begin
+	select	*
+	from
+	(
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.barcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_PickingRequestSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.arcode like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 1--a.isconfirm = 0 and 
+	union		
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.barcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_PickingRequestSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.refno,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 1--a.isconfirm = 0 and 
+	union		
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.barcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_PickingRequestSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.queid like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 1--a.isconfirm = 0 and
+	union		
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.barcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_PickingRequestSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.docno,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 1--a.isconfirm = 0 and
+	union		
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.barcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_PickingRequestSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.memberid,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 1--a.isconfirm = 0 and
+	union		
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.barcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_PickingRequestSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.salecode,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 1--a.isconfirm = 0 and
+	) as	result 
+	order	by queid 
+	end
+end
+
+if	@vType =2
+begin
+	if	@vSearch = ''
+	begin
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_QueueRequestPicking d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 2 --a.isconfirm = 0 and 
+	order	by a.queid 
+	end
+	
+	if	@vSearch <> ''
+	begin
+	select	*
+	from
+	(
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_QueueRequestPicking d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.arcode like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		 invqty =0  and sourceid = 2 --a.isconfirm = 0 and
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_QueueRequestPicking d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.refno,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		 invqty =0  and sourceid = 2 --a.isconfirm = 0 and
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_QueueRequestPicking d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(d.docno,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 2 --a.isconfirm = 0 and 
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_QueueRequestPicking d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.memberid,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 2 --a.isconfirm = 0 and 
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_QueueRequestPicking d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.queid like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 2 --a.isconfirm = 0 and 
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_QueueRequestPicking d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.salecode,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 2 --a.isconfirm = 0 and 
+	) as aa
+	order	by queid 
+	end
+end
+
+if	@vType =3
+begin
+	if	@vSearch = ''
+	begin
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_DriveInSlipSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 3 --a.isconfirm = 0 and 
+	order	by a.queid 
+	end
+	
+	if	@vSearch <> ''
+	begin
+	select	*
+	from
+	(
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_DriveInSlipSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.arcode like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		 invqty =0  and sourceid = 3 --a.isconfirm = 0 and
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_DriveInSlipSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.refno,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		 invqty =0  and sourceid = 3 --a.isconfirm = 0 and
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_DriveInSlipSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(d.docno,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 3 --a.isconfirm = 0 and 
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_DriveInSlipSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.memberid,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 3 --a.isconfirm = 0 and 
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_DriveInSlipSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	a.queid like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 3 --a.isconfirm = 0 and 
+	union
+	select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'') as refno,isnull(memberid,'') as memberid,
+		sourceid,isnull(quedescription,'') as quedescription,isnull(quepicker,'') as quepicker,
+		a.questart,a.questop,questatus,isnull(quepickstatus,'') as quepickstatus,quezone,
+		b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.checkqty,b.invqty,b.unitcode,
+		isnull(d.price,0) as price,isnull(d.discountamount,0) as discountamount,
+		isnull(b.pickqty,0)*(isnull(d.price,0)-isnull(d.discountamount,0)) as netamount,isnull(d.itemcode,'') as barcode
+	from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join npmaster.dbo.TB_NP_DriveInSlipSub d on a.docno = d.docno and  b.itemcode = d.itemcode
+	where	isnull(a.salecode,'') like '%'+@vSearch +'%' and a.quedocdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)and
+		invqty =0  and sourceid = 3 --a.isconfirm = 0 and 
+	) as aa
+	order	by queid 
+	end
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_ShowQueMonitor
+
+as
+
+set	dateformat dmy
+
+select 	a.QueID,a.QueDocdate,a.SourceID,a.ARCode,a.QueStatus,a.QueDescription,a.QueDate, 
+		isnull(a.QueStart,'') as QueStart1,a.QueStop,isnull(a.QuePicker,'') as QuePicker,a.QueStatus,a.QueReceived, 
+		QuePickStatus,isnull(b.name1,'') as arname,
+		case
+		when len(cast(DATEPART(hour,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(hour,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(hour,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(minute,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(minute,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(minute,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(second,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(second,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(second,a.QueStart)as varchar(2))
+		end as QueStart ,
+		case
+		when len(cast(DATEPART(hour,a.QueStop)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(hour,a.QueStop)as varchar(2))
+		else 
+		cast(DATEPART(hour,a.QueStop)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(minute,a.QueStop)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(minute,a.QueStop)as varchar(2))
+		else 
+		cast(DATEPART(minute,a.QueStop)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(second,a.QueStop)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(second,a.QueStop)as varchar(2))
+		else 
+		cast(DATEPART(second,a.QueStop)as varchar(2))
+		end as QueStop,
+		convert(nvarchar(30),(getdate()-QueStart),8 ) as PickingTime,
+		case questatus 
+		when 0 then 'สินค้า'
+		when 1 then ''
+		when 2 then 'รอจ่ายของ' end as StatusDescription,
+		Quereqtime
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale d on a.salecode = d.code
+where 	(a.quedocdate = rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) or (a.quedocdate < rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) and DATEPART (hh,getdate())<10)) and 
+		quereceived = 0  
+order	by quedocdate,queid
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_CheckQuePickCenterZone
+@vQueID as int,
+@vQueDocDate as nvarchar(20)
+as
+
+set	dateformat dmy
+
+select	isnull(quezone,'') as quezone 
+from	npmaster.dbo.TB_NP_QuePickCenterMaster 
+where	queid = @vQueID and quedocdate = @vQueDocDate  
+order	by quedate desc 
+
+
+
+
+
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdateQuePickCenterReason
+@vQueID as int,
+@vQueDocDate as nvarchar(20),
+@vReasonID as int,
+@vMyDescription as nvarchar(150)
+as
+
+set	dateformat dmy
+update 	npmaster.dbo.TB_NP_QuePickCenterMaster 
+set	quereasondesc = @vMyDescription,quereason = @vReasonID
+where 	queid = @vQueID  and quedocdate = @vQueDocDate
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdatePickQueCenterSub
+@vQueNo as int,
+@vQueDocDate as nvarchar(20),
+@vItemCode as nvarchar(30),
+@vPickQTY as money
+as
+
+set 	dateformat dmy
+
+update	npmaster.dbo.TB_NP_QuePickCenterSub 
+set		pickqty = @vPickQTY
+where	queid = @vQueNo and quedocdate = @vQueDocDate and itemcode = @vItemCode
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdateQueStatusDetails
+@vQueID as int,
+@vQueDocDate as nvarchar(20),
+@vPicker as nvarchar(50),
+@vStatus as int,
+@vQueTime as int,
+@vPickStatus as int
+as
+
+set	dateformat dmy
+
+declare @vStatusDesc as nvarchar(20)
+
+if @vStatus = 1
+begin 
+	update 	npmaster.dbo.TB_NP_QuePickCenterMaster 
+	set		questatus = 1,quedescription = 'จัดของ',quepicker = @vPicker,questart = getdate()
+	where 	queid = @vQueID  and quedocdate = @vQueDocDate and Quetime = @vQueTime
+end
+if @vStatus = 2
+begin 
+
+if @vPickStatus = 1
+begin
+set @vStatusDesc ='ครบ'
+end
+if @vPickStatus = 2 
+begin
+set @vStatusDesc = 'ไม่ครบ'
+end
+
+update 	npmaster.dbo.TB_NP_QuePickCenterMaster 
+set		questatus = 2,quedescription = @vStatusDesc,questop = getdate(),quepickstatus = @vPickStatus
+where 	queid = @vQueID  and quedocdate = @vQueDocDate and Quetime = @vQueTime
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchQueCenterDetails
+@vQueNo as int,
+@vQueDocDate as nvarchar(20)
+as
+
+set 	dateformat dmy
+
+--if @vSourceID = 1 
+--begin
+select	a.queid,a.quedocdate,a.docno,a.docdate,a.arcode,a.salecode,isnull(a.refno,'')as refno,isnull(a.memberid,'') as memberid,a.sourceid,isnull(quepicker,'') as picker,
+	a.isconditionsend,a.quezone,a.quedate,a.questatus,a.quereqtime,a.quetime,
+	b.itemcode,isnull(c.name1,'') as itemname,b.whcode,b.shelfcode,b.shelfid,b.zoneid,b.qty,b.pickqty,b.unitcode,
+	isnull(d.name1,'') as arname,isnull(e.name,'') as salename,isnull(c.stockqty,0) as stockqty,isnull(c.remainoutqty,0) as remainoutqty,(isnull(c.stockqty,0)-isnull(c.remainoutqty,0)) as remainsale
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a
+	left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid = b.queid and a.quedocdate = b.quedocdate 
+	left join dbo.bcitem c on b.itemcode = c.code
+	left join dbo.bcar d on a.arcode = d.code
+	left join dbo.bcsale e on a.salecode = e.code
+where	a.queid = @vQueNo and a.quedocdate = @vQueDocDate 
+order	by linenumber
+--end
+GO
+
+
+CREATE	procedure dbo.USP_NP_CancelReqPicking
+@vDocNo as nvarchar(50)
+
+as
+
+set		dateformat dmy
+
+declare	@vExist as int
+
+set		@vExist = (select isnull(count(docno),0) as vCount from npmaster.dbo.TB_NP_PickingRequestMaster where docno = @vDocNo and iscancel = 0)
+
+if		@vExist <> 0 
+begin
+update	npmaster.dbo.TB_NP_PickingRequestMaster  
+set		iscancel = 1
+where	docno = @vDocNo and iscancel = 0
+end
+
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchReqPicking
+@vSearch as nvarchar(50)
+
+as
+
+set		dateformat dmy
+
+if		@vSearch = ''
+begin
+select	top 100 a.DocNo,a.DocDate,a.ARCode,isnull(c.name1,'') as arname,a.SaleCode,isnull(d.name,'') as salename,isnull(refno,'') as refno,
+		isnull(a.memberid,'') as memberid,a.NetDebtAmount		
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join dbo.bcar c on a.arcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	iscancel = 0
+order	by docno desc
+end
+
+if		@vSearch <> ''
+begin
+select	*
+from 
+(		
+select	a.DocNo,a.DocDate,a.ARCode,isnull(c.name1,'') as arname,a.SaleCode,isnull(d.name,'') as salename,isnull(refno,'') as refno,
+		isnull(a.memberid,'') as memberid,a.NetDebtAmount		
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join dbo.bcar c on a.arcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	a.docno like '%'+@vSearch+'%' and iscancel = 0
+union
+select	a.DocNo,a.DocDate,a.ARCode,isnull(c.name1,'') as arname,a.SaleCode,isnull(d.name,'') as salename,isnull(refno,'') as refno,
+		isnull(a.memberid,'') as memberid,a.NetDebtAmount		
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join dbo.bcar c on a.arcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	a.arcode like '%'+@vSearch+'%' and iscancel = 0
+union
+select	a.DocNo,a.DocDate,a.ARCode,isnull(c.name1,'') as arname,a.SaleCode,isnull(d.name,'') as salename,isnull(refno,'') as refno,
+		isnull(a.memberid,'') as memberid,a.NetDebtAmount		
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join dbo.bcar c on a.arcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	isnull(a.memberid,'') like '%'+@vSearch+'%' and iscancel = 0
+union
+select	a.DocNo,a.DocDate,a.ARCode,isnull(c.name1,'') as arname,a.SaleCode,isnull(d.name,'') as salename,isnull(refno,'') as refno,
+		isnull(a.memberid,'') as memberid,a.NetDebtAmount		
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join dbo.bcar c on a.arcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	isnull(a.refno,'') like '%'+@vSearch+'%' and iscancel = 0
+union
+select	a.DocNo,a.DocDate,a.ARCode,isnull(c.name1,'') as arname,a.SaleCode,isnull(d.name,'') as salename,isnull(refno,'') as refno,
+		isnull(a.memberid,'') as memberid,a.NetDebtAmount		
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join dbo.bcar c on a.arcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	a.salecode like '%'+@vSearch+'%' and iscancel = 0
+)	as	result
+order	by docno
+end
+
+GO
+
+
+CREATE	procedure dbo.USP_AR_ARProFileSearch
+@ARCode as nvarchar(20)
+as
+
+set		dateformat dmy
+
+if		@ARCode = ''
+begin
+		select	top 100 a.createdatetime,a.code as arcode,isnull(a.name1,'') as arname,isnull(a.billaddress,'') as address,isnull(a.telephone,'-') as telephone,
+				isnull(debtlimit1,0) as debtlimit1,isnull(groupcode,'') as groupcode,isnull(b.name,'') as groupname,isnull(groupofdebt,'') as groupofdebt,
+				isnull(c.name,'') as debtname,isnull(creditmencode,'') as salecode,isnull(e.name,'') as salename,isnull(a.pressmencode,'') as pressmencode,
+				isnull(f.name,'')as pressmenname,isnull(memberid,'') as memberid
+		from	dbo.bcar a 
+		left	join dbo.bcargroup b on a.groupcode = b.code
+		left	join dbo.bcardebtgroup c on a.groupofdebt = c.code
+		left	join dbo.bccusttype d on a.typecode = d.code
+		left	join dbo.bcsale e on a.creditmencode = e.code
+		left	join dbo.bcsale f on a.pressmencode = f.code
+		where	a.activestatus = 1 
+end
+
+if		@ARCode <> ''
+begin
+select	*
+from
+(
+select	a.createdatetime,a.code as arcode,isnull(a.name1,'') as arname,isnull(a.billaddress,'') as address,isnull(a.telephone,'-') as telephone,
+		isnull(debtlimit1,0) as debtlimit1,isnull(groupcode,'') as groupcode,isnull(b.name,'') as groupname,isnull(groupofdebt,'') as groupofdebt,
+		isnull(c.name,'') as debtname,isnull(creditmencode,'') as salecode,isnull(e.name,'') as salename,isnull(a.pressmencode,'') as pressmencode,
+		isnull(f.name,'')as pressmenname,isnull(memberid,'') as memberid
+from	dbo.bcar a 
+left	join dbo.bcargroup b on a.groupcode = b.code
+left	join dbo.bcardebtgroup c on a.groupofdebt = c.code
+left	join dbo.bccusttype d on a.typecode = d.code
+left	join dbo.bcsale e on a.creditmencode = e.code
+left	join dbo.bcsale f on a.pressmencode = f.code
+where	a.activestatus = 1 and a.code like '%'+@ARCode+'%'
+union
+select	a.createdatetime,a.code as arcode,isnull(a.name1,'') as arname,isnull(a.billaddress,'') as address,isnull(a.telephone,'-') as telephone,
+		isnull(debtlimit1,0) as debtlimit1,isnull(groupcode,'') as groupcode,isnull(b.name,'') as groupname,isnull(groupofdebt,'') as groupofdebt,
+		isnull(c.name,'') as debtname,isnull(creditmencode,'') as salecode,isnull(e.name,'') as salename,isnull(a.pressmencode,'') as pressmencode,
+		isnull(f.name,'')as pressmenname,isnull(memberid,'') as memberid
+from	dbo.bcar a 
+left	join dbo.bcargroup b on a.groupcode = b.code
+left	join dbo.bcardebtgroup c on a.groupofdebt = c.code
+left	join dbo.bccusttype d on a.typecode = d.code
+left	join dbo.bcsale e on a.creditmencode = e.code
+left	join dbo.bcsale f on a.pressmencode = f.code
+where	a.activestatus = 1 and a.name1 like '%'+@ARCode+'%'
+) as	result
+order	by arcode
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchBarCode 
+@vSearch as nvarchar(50)
+as
+
+set	dateformat dmy
+select	*
+from
+(
+select 	a.itemcode,a.barcode,isnull(b.name1,'')  as itemname,isnull(a.unitcode,'') as UnitCode,
+		isnull(defsalewhcode,'') as defsalewhcode,isnull(defsaleshelf,'')as defsaleshelf,isnull(stockqty,0) as stockqty,isnull(remainoutqty,0) as remainoutqty,
+		isnull((select top 1 saleprice1 from dbo.bcpricelist where saletype = 0 and transporttype = 0 and itemcode = b.code and unitcode = a.unitcode),0) as price,
+		isnull(c.zoneid,'X') as zone
+from 	dbo.bcbarcodemaster a
+		left join dbo.bcitem b on a.itemcode = b.code
+		left join npmaster.dbo.TB_NP_CategoryPickingZone c on b.categorycode = c.categorycode 
+where 	a.barcode like '%'+@vSearch+'%' and a.activestatus = 1 and b.activestatus = 1
+
+union
+
+select 	a.itemcode,a.barcode,isnull(b.name1,'')  as itemname,isnull(a.unitcode,'') as UnitCode,
+		isnull(defsalewhcode,'') as defsalewhcode,isnull(defsaleshelf,'')as defsaleshelf,isnull(stockqty,0) as stockqty,isnull(remainoutqty,0) as remainoutqty,
+		isnull((select top 1 saleprice1 from dbo.bcpricelist where saletype = 0 and transporttype = 0 and itemcode = b.code and unitcode = a.unitcode),0) as price,
+		isnull(c.zoneid,'X') as zone
+from 	dbo.bcbarcodemaster a
+		left join dbo.bcitem b on a.itemcode = b.code 
+		left join npmaster.dbo.TB_NP_CategoryPickingZone c on b.categorycode = c.categorycode 
+where 	b.code like '%'+@vSearch+'%' and a.activestatus = 1 and b.activestatus = 1
+
+union
+
+select 	a.itemcode,a.barcode,isnull(b.name1,'')  as itemname,isnull(a.unitcode,'') as UnitCode,
+		isnull(defsalewhcode,'') as defsalewhcode,isnull(defsaleshelf,'')as defsaleshelf,isnull(stockqty,0) as stockqty,isnull(remainoutqty,0) as remainoutqty,
+		isnull((select top 1 saleprice1 from dbo.bcpricelist where saletype = 0 and transporttype = 0 and itemcode = b.code and unitcode = a.unitcode),0) as price,
+		isnull(c.zoneid,'X') as zone
+from 	dbo.bcbarcodemaster a
+		left join dbo.bcitem b on a.itemcode = b.code 
+		left join npmaster.dbo.TB_NP_CategoryPickingZone c on b.categorycode = c.categorycode 
+where 	b.name1 like '%'+@vSearch+'%' and a.activestatus = 1 and b.activestatus = 1
+)	as	result
+order 	by itemcode
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchQueCenterFinish
+@vZoneID as int
+as
+
+set 	dateformat dmy
+set	language us_english
+
+if 	@vZoneID = 1
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename,isnull(quepicker,'') as quepicker,quepickstatus
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus in (2,3) and quereceived = 0 and a.QueZone = 'A' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 2
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename,isnull(quepicker,'') as quepicker,quepickstatus
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus  in (2,3) and quereceived = 0 and a.QueZone = 'B' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 3
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename,isnull(quepicker,'') as quepicker,quepickstatus
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus  in (2,3) and quereceived = 0 and a.QueZone = 'C' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 4
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename,isnull(quepicker,'') as quepicker,quepickstatus
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus  in (2,3) and quereceived = 0 and a.QueZone = 'X' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchQueCenterPicking
+@vZoneID as int
+as
+
+set 	dateformat dmy
+SET LOCK_TIMEOUT 10000
+
+set	language us_english
+
+if 	@vZoneID = 1
+begin
+select 	QueID,QueDocDate,Docno,Docdate,SourceID,isnull(ARCode,'') as ARCode,QueStatus,QueDate,QueStart,QueStop,
+		isnull(QuePicker,'') as QuePicker,QueReceived,QueStatus,isnull(a.SaleCode,'') as SaleCode,
+		isnull(RefNo,'') as RefNo,QueZone,QueTime,QueDescription,isnull(QueReqTime,'00:00') as QueReqTime,
+		isnull(b.name1,'') as arname,isnull(c.name,'') as salename,
+		case
+		when len(cast(DATEPART(hour,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(hour,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(hour,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(minute,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(minute,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(minute,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(second,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(second,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(second,a.QueStart)as varchar(2))
+		end as StartTime,
+		case Questatus 
+		when 1 then convert(nvarchar(30),(getdate()-QueStart),8 )
+		end as PickingTime
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.SaleCode = c.code
+where 	questatus = 1 and a.QueZone = 'A' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 2
+begin
+select 	QueID,QueDocDate,Docno,Docdate,SourceID,isnull(ARCode,'') as ARCode,QueStatus,QueDate,QueStart,QueStop,
+		isnull(QuePicker,'') as QuePicker,QueReceived,QueStatus,isnull(a.SaleCode,'') as SaleCode,
+		isnull(RefNo,'') as RefNo,QueZone,QueTime,QueDescription,isnull(QueReqTime,'00:00') as QueReqTime,
+		isnull(b.name1,'') as arname,isnull(c.name,'') as salename,
+		case
+		when len(cast(DATEPART(hour,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(hour,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(hour,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(minute,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(minute,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(minute,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(second,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(second,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(second,a.QueStart)as varchar(2))
+		end as StartTime,
+		case Questatus 
+		when 1 then convert(nvarchar(30),(getdate()-QueStart),8 )
+		end as PickingTime
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.SaleCode = c.code
+where 	questatus = 1 and a.QueZone = 'B' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 3
+begin
+select 	QueID,QueDocDate,Docno,Docdate,SourceID,isnull(ARCode,'') as ARCode,QueStatus,QueDate,QueStart,QueStop,
+		isnull(QuePicker,'') as QuePicker,QueReceived,QueStatus,isnull(a.SaleCode,'') as SaleCode,
+		isnull(RefNo,'') as RefNo,QueZone,QueTime,QueDescription,isnull(QueReqTime,'00:00') as QueReqTime,
+		isnull(b.name1,'') as arname,isnull(c.name,'') as salename,
+		case
+		when len(cast(DATEPART(hour,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(hour,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(hour,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(minute,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(minute,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(minute,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(second,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(second,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(second,a.QueStart)as varchar(2))
+		end as StartTime,
+		case Questatus 
+		when 1 then convert(nvarchar(30),(getdate()-QueStart),8 )
+		end as PickingTime
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.SaleCode = c.code
+where 	questatus = 1 and a.QueZone = 'C' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 4
+begin
+select 	QueID,QueDocDate,Docno,Docdate,SourceID,isnull(ARCode,'') as ARCode,QueStatus,QueDate,QueStart,QueStop,
+		isnull(QuePicker,'') as QuePicker,QueReceived,QueStatus,isnull(a.SaleCode,'') as SaleCode,
+		isnull(RefNo,'') as RefNo,QueZone,QueTime,QueDescription,isnull(QueReqTime,'00:00') as QueReqTime,
+		isnull(b.name1,'') as arname,isnull(c.name,'') as salename,
+		case
+		when len(cast(DATEPART(hour,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(hour,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(hour,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(minute,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(minute,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(minute,a.QueStart)as varchar(2))
+		end+':'+
+		case
+		when len(cast(DATEPART(second,a.QueStart)as varchar(2))) <=1 then
+		'0'+cast(DATEPART(second,a.QueStart)as varchar(2))
+		else 
+		cast(DATEPART(second,a.QueStart)as varchar(2))
+		end as StartTime,
+		case Questatus 
+		when 1 then convert(nvarchar(30),(getdate()-QueStart),8 )
+		end as PickingTime
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.SaleCode = c.code
+where 	questatus = 1 and a.QueZone = 'X' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_SearchQueCenterBegin
+@vZoneID as int
+as
+
+set 	dateformat dmy
+set	language us_english
+
+if 	@vZoneID = 1
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus = 0 and a.QueZone = 'A' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 2
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus = 0 and a.QueZone = 'B' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 3
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus = 0 and a.QueZone = 'C' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+
+if 	@vZoneID = 4
+begin
+select 	QueID,QueDocDate,DocNo,DocDate,ARCode,a.SaleCode,isnull(RefNo,'') as refno,SourceID,QueZone,QueDate,IsConditionSend,
+		isnull(QueReqTime,'') as quereqtime,QueStatus,QueTime,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+from 	npmaster.dbo.TB_NP_QuePickCenterMaster a
+		left join dbo.bcar b on a.arcode = b.code
+		left join dbo.bcsale c on a.salecode = c.code
+where 	questatus = 0 and a.QueZone = 'X' and QueDocDate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by quedate desc,docno desc
+end
+GO
+
+
+
+create	procedure dbo.USP_NP_SearchSendQueuePicking
+@vDocNo as nvarchar(30)
+as
+
+set		dateformat dmy
+
+select	isnull(issendque ,0) as issendque
+from	npmaster.dbo.TB_NP_PickingRequestMaster
+where	docno = @vDocNo
+GO
+
+
+CREATE	procedure dbo.USP_NP_UpdateSendQueuePicking
+@vType as int,
+@vDocNo as nvarchar(30)
+as
+
+set		dateformat dmy
+
+if	@vType = 1
+begin
+update	npmaster.dbo.TB_NP_PickingRequestMaster
+set		issendque = 1 
+where	docno = @vDocNo
+end
+
+if	@vType = 3
+begin
+update	npmaster.dbo.TB_NP_DriveInSlipMaster
+set		issendque = 1 
+where	docno = @vDocNo
+end
+GO
+
+
+
+CREATE	procedure dbo.usp_np_SearchReqPickingInformation
+@vDocNo as nvarchar(30),
+@vTimeID as int
+as
+
+set		dateformat dmy
+
+select	a.QueID,a.QueDocDate,a.docno,a.ARCode,isnull(c.name1,'') as arname,isnull(b.ZoneID,'') as zoneid
+from	npmaster.dbo.TB_NP_QuePickCenterMaster a 
+		left join npmaster.dbo.TB_NP_QuePickCenterSub b on a.queid =b.queid and a.quedocdate = b.quedocdate and a.quetime = b.quetime
+		left join dbo.bcar c on a.arcode = c.code
+where	a.docno = @vDocNo and a.QueTime = @vTimeID
+group	by a.QueID,a.QueDocDate,a.docno,a.ARCode,c.name1,b.ZoneID
+order	by a.QueID
+GO
+
+
+
+CREATE	procedure dbo.usp_np_SearchReqPickingItemZone
+@vType as int,
+@vDocNo as nvarchar(30),
+@vZoneID as nvarchar(10),
+@vTimeID as int
+
+as
+
+set		dateformat dmy
+
+if 	@vType = 1 
+begin
+select	a.DocNo,a.DocDate,a.ARCode,a.SaleCode,isnull(d.name,'') as salename,a.BeforeTaxAmount,a.TaxAmount,a.NetDebtAmount,a.IsConditionSend,a.ReqTime,isnull(a.MyDescription ,'') as MyDescription,
+		b.ItemCode,c.name1 as itemname,b.QTY,b.Unitcode,b.Price,b.DisCountWord,b.DisCountAmount,b.NetAmount,b.WHCode,b.ShelfCode,b.ShelfID,b.ZoneID,b.BarCode,b.LineNumber
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join npmaster.dbo.TB_NP_PickingRequestSub b on a.docno =b.docno 
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	a.docno = @vDocNo and b.zoneid = @vZoneID
+order	by b.linenumber
+end
+
+if 	@vType = 2 
+begin
+set		dateformat dmy
+
+select	a.DocNo,a.DocDate,a.ARCode,a.SaleCode,isnull(d.name,'') as salename,sumofitemamount as BeforeTaxAmount,TaxAmount,netamount as NetDebtAmount,
+		a.IsConditionSend,'' as ReqTime,'' as MyDescription,
+		b.ItemCode,c.name1 as itemname,b.reqQTY as qty,b.Unitcode,Price,'' as DisCountWord,DisCountAmount,itemamount as NetAmount,b.WHCode,b.ShelfCode,'' as ShelfID,b.ZoneID,'' as BarCode,b.LineNumber
+from	npmaster.dbo.TB_NP_QueueRequestPickingMaster a 
+		left join npmaster.dbo.TB_NP_QueueRequestPicking b on a.docno =b.docno and a.shelfgroup = b.zoneid and a.socountnumber = b.socountnumber
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	a.docno = @vDocNo and b.zoneid = @vZoneID and a.socountnumber = @vTimeID
+order	by b.linenumber
+end
+
+
+if 	@vType = 3 
+begin
+set		dateformat dmy
+
+select	a.DocNo,a.DocDate,a.ARCode,a.SaleCode,isnull(d.name,'') as salename,0 as BeforeTaxAmount,0 as TaxAmount,0 as NetDebtAmount,0 as IsConditionSend,'' as ReqTime,'' as MyDescription,
+	b.ItemCode,c.name1 as itemname,b.qty,b.Unitcode,0 as Price,0 as DisCountWord,'' as DisCountAmount,0 as NetAmount,b.WHCode,b.ShelfCode,'' as ShelfID,b.ZoneID,'' as BarCode,b.LineNumber
+from	npmaster.dbo.TB_NP_DriveInSlipMaster a 
+		left join npmaster.dbo.TB_NP_DriveInSlipSub b on a.docno =b.docno and a.docdate = b.docdate
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	a.docno = @vDocNo and b.zoneid = @vZoneID 
+order	by b.linenumber
+end
+
+GO
+
+
+
+
+CREATE PROCEDURE dbo.USP_CRM_EmployeeDetails
+@vType as int, 
+@Employee as varchar(50)
+
+as
+
+if	@vType = 0
+begin
+	if @Employee = ''
+	begin
+		select	Code as EmpCode,name as EmpName 
+		from	dbo.BCSale 
+		where	 ActiveStatus=1
+		order	by code
+	end
+	if @Employee <> ''
+	begin
+		select	*
+		from
+		(
+		select	Code as EmpCode,name as EmpName 
+		from	dbo.BCSale 
+		where	code like '%'+@Employee +'%'  and ActiveStatus=1
+		union
+		select	Code as EmpCode,name as EmpName 
+		from	dbo.BCSale 
+		where	name like '%'+@Employee +'%'  and ActiveStatus=1
+		) as 	result
+		order	by EmpCode
+	end 
+end
+
+
+if	@vType = 1
+begin
+select	Code as EmpCode,name as EmpName 
+from	dbo.BCSale 
+where	code = @Employee and ActiveStatus=1 
+end
+GO
+
+
+
+CREATE	procedure dbo.usp_np_SearchReqPickingDetails
+@vDocNo as nvarchar(30)
+
+as
+
+set		dateformat dmy
+
+select	a.DocNo,a.DocDate,a.ARCode,a.SaleCode,isnull(d.name,'') as salename,issendque,isnull(refno,'') as refno,isnull(memberid,'') as memberid,a.BeforeTaxAmount,a.TaxAmount,a.NetDebtAmount,a.IsConditionSend,a.ReqTime,
+	a.iscancel,isnull(a.MyDescription ,'') as MyDescription,
+	b.ItemCode,c.name1 as itemname,b.QTY,b.Unitcode,b.Price,b.DisCountWord,b.DisCountAmount,b.NetAmount,b.WHCode,b.ShelfCode,b.ShelfID,b.ZoneID,b.BarCode,b.LineNumber
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join npmaster.dbo.TB_NP_PickingRequestSub b on a.docno =b.docno 
+		left join dbo.bcitem c on b.itemcode = c.code
+		left join dbo.bcsale d on a.salecode = d.code
+where	a.docno = @vDocNo 
+order	by b.linenumber
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchGroupPicking
+@vType as int,
+@vDocNo as nvarchar(30)
+as
+
+set		dateformat dmy
+
+if	@vType = 1
+begin
+select	distinct a.docno,zoneid
+from	npmaster.dbo.TB_NP_PickingRequestMaster a 
+		left join npmaster.dbo.TB_NP_PickingRequestSub b on a.docno = b.docno and a.docdate = b.docdate
+where	a.docno = @vDocNo
+end
+
+
+if	@vType = 2
+begin
+select	distinct a.docno,b.zoneid
+from	npmaster.dbo.TB_NP_QueueRequestPickingMaster a 
+		left join npmaster.dbo.TB_NP_QueueRequestPicking b on a.docno = b.docno and a.docdate = b.docdate
+where	a.docno = @vDocNo
+end
+
+if	@vType =3
+begin
+select	distinct a.docno,b.zoneid
+from	npmaster.dbo.TB_NP_DriveInSlipMaster a 
+		left join npmaster.dbo.TB_NP_DriveInSlipSub b on a.docno = b.docno and a.docdate = b.docdate
+where	a.docno = @vDocNo
+end
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertPickingRequestSub
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vItemCode as nvarchar(20),
+@vQTY as money,
+@vUnitcode as nvarchar(20),
+@vPrice as money,
+@vDisCountWord as nvarchar(20),
+@vDisCountAmount as money,
+@vNetAmount as money,
+@vWHCode as nvarchar(20),
+@vShelfCode as nvarchar(20),
+@vShelfID as nvarchar(20),
+@vZoneID as nvarchar(20),
+@vBarCode as nvarchar(20),
+@vLineNumber as int
+
+as
+
+set	dateformat dmy
+
+insert	into npmaster.dbo.TB_NP_PickingRequestSub(DocNo,DocDate,ItemCode,QTY,Unitcode,Price,DisCountWord,DisCountAmount,NetAmount,WHCode,ShelfCode,ShelfID,ZoneID,BarCode,LineNumber)
+values	(@vDocNo,@vDocDate,@vItemCode,@vQTY,@vUnitcode,@vPrice,@vDisCountWord,@vDisCountAmount,@vNetAmount,@vWHCode,@vShelfCode,@vShelfID,@vZoneID,@vBarCode,@vLineNumber)
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertPickingRequestMaster
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vARCode as nvarchar(30),
+@vSaleCode as nvarchar(30),
+@vRefNo as nvarchar(30),
+@vMemberID as nvarchar(20),
+@vBeforeTaxAmount as money,
+@vTaxAmount as money,
+@vNetDebtAmount as money,
+@vIsConditionSend as int,
+@vReqTime as nvarchar(20),
+@vMyDescription as nvarchar(300),
+@vUserID as nvarchar(30)
+
+as
+
+set		dateformat dmy
+
+declare	@vExist as int
+
+set	@vExist = (select isnull(count(docno),0) as vcount from npmaster.dbo.TB_NP_PickingRequestMaster where docno = @vDocNo)
+
+if	@vExist = 0 
+begin
+insert	into npmaster.dbo.TB_NP_PickingRequestMaster(DocNo,DocDate,ARCode,SaleCode,RefNo,MemberID,BeforeTaxAmount,TaxAmount,NetDebtAmount,IsConditionSend,ReqTime,MyDescription,CreatorCode,CreateDateTime)
+values	(@vDocNo,@vDocDate,@vARCode,@vSaleCode,@vRefNo,@vMemberID,@vBeforeTaxAmount,@vTaxAmount,@vNetDebtAmount,@vIsConditionSend,@vReqTime,@vMyDescription,@vUserID,getdate())
+end
+
+if	@vExist > 0
+begin
+update	npmaster.dbo.TB_NP_PickingRequestMaster
+set		ARCode = @vARCode,SaleCode=@vSaleCode,RefNo=@vRefNo,MemberID=@vMemberID,BeforeTaxAmount=@vBeforeTaxAmount,TaxAmount=@vTaxAmount,NetDebtAmount=@vNetDebtAmount,IsConditionSend=@vIsConditionSend,ReqTime=@vReqTime,MyDescription=@vMyDescription,LastEditorCode = @vUserID,LastEditDateTime = getdate()
+where	docno = @vDocNo
+
+delete	npmaster.dbo.TB_NP_PickingRequestSub
+where	docno = @vDocNo
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_CheckQuePickCenter
+@vDocno as nvarchar(20),
+@vQueDocDate as nvarchar(20)
+as
+
+set		dateformat dmy
+
+select	isnull(max(QueTime),0) as Max1 
+from	npmaster.dbo.TB_NP_QuePickCenterMaster 
+where	docno = @vDocno and quedocdate = @vQueDocDate
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertQuePickCenterSub
+@vQueID as int,
+@vQueDocDate as nvarchar(20),
+@vItemCode as nvarchar(20),
+@vWHCode as nvarchar(20),
+@vShelfCode as nvarchar(20),
+@vShelfID as nvarchar(20),
+@vZoneID as nvarchar(20),
+@vQTY as money,
+@vPickQTY as money,
+@vInvQTY as money,
+@vUnitcode as nvarchar(20),
+@vBarCode as nvarchar(20),
+@vRefNo as nvarchar(30),
+@vQueTime as int,
+@vLineNumber as int
+
+as
+
+set		dateformat dmy
+
+insert	into npmaster.dbo.TB_NP_QuePickCenterSub(QueID,QueDocDate,ItemCode,WHCode,ShelfCode,ShelfID,ZoneID,QTY,PickQTY,InvQTY,Unitcode,BarCode,RefNo,QueTime,LineNumber)
+values	(@vQueID,@vQueDocDate,@vItemCode,@vWHCode,@vShelfCode,@vShelfID,@vZoneID,@vQTY,0,0,@vUnitcode,@vBarCode,@vRefNo,@vQueTime,@vLineNumber)
+GO
+
+
+
+create	procedure dbo.USP_NP_SearchDriveInCheckOut
+@vDocNo as nvarchar(30)
+as
+
+set		dateformat dmy
+
+select	a.DocNo,a.DocDate,a.Checker,a.PosNo,a.NetDebtAmount,a.IsCancel,a.IsConfirm,ItemCode,QTY,BillQTY,UnitCode,Price,Amount,BarCode,b.IsCancel as IsCancelLine,LineNumber
+from	npmaster.dbo.TB_NP_DriveInCheckOut a
+		left join npmaster.dbo.TB_NP_DriveInCheckOutSub b on a.docno = b.docno and a.docdate = b.docdate
+where	a.docno = @vDocNo and a.iscancel = 0 and b.iscancel = 0
+order	by b.linenumber
+
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_DeleteDriveInMergeTemp
+@vDocNo nvarchar(20)
+as
+
+set		dateformat dmy
+
+delete	npmaster.dbo.TB_NP_DriveInMergeTemp
+where	docno = @vDocNo
+
+GO
+
+
+CREATE	procedure dbo.USP_NP_InsertQuePickCenterMaster
+@vQueID as int,
+@vQueDocDate as nvarchar(20),
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vARCode as nvarchar(30),
+@vSaleCode as nvarchar(30),
+@vRefNo as nvarchar(30),
+@vMemberID as nvarchar(20),
+@vSourceID as int,
+@vQueZone as nvarchar(10),
+@vIsConditionSend as int,
+@vQueReqTime as nvarchar(20),
+@vQueTime as int
+
+as
+
+set		dateformat dmy
+
+--QueID,QueDocDate,DocNo,DocDate,ARCode,SaleCode,RefNo,SourceID,CashierCode,HoldBillNo,IsConfiirm,Checker,CheckOutDateTime,QueDate,QuePicker,QueStart,QueStop,QueStatus,QueReqTime,QueReason,QueTime,IsCancel
+declare	@vExist as int
+
+set	@vExist = (select isnull(count(queid),0) as vcount from npmaster.dbo.TB_NP_QuePickCenterMaster where queid = @vQueID and QueDocDate =@vQueDocDate)
+
+if	@vExist = 0 
+begin
+insert	into npmaster.dbo.TB_NP_QuePickCenterMaster(QueID,QueDocDate,DocNo,DocDate,ARCode,SaleCode,RefNo,MemberID,SourceID,QueZone,QueDate,IsConditionSend,QueReqTime,QueStatus,QueDescription,QueTime)
+values	(@vQueID,@vQueDocDate,@vDocNo,@vDocDate,@vARCode,@vSaleCode,@vRefNo,@vMemberID,@vSourceID,@vQueZone,getdate(),@vIsConditionSend,@vQueReqTime,0,'รอจัด',@vQueTime)
+end
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertDriveInCheckOutSub
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vItemCode as nvarchar(30),
+@vWHCode as nvarchar(10),
+@vShelfCode as nvarchar(20),
+@vQTY as money,
+@vBillQTY as money,
+@vUnitCode as nvarchar(20),
+@vPrice as money,
+@vAmount as money,
+@vBarCode as nvarchar(30),
+@vLineNumber as int
+
+as
+
+set		dateformat dmy
+
+insert	into npmaster.dbo.TB_NP_DriveInCheckOutSub(DocNo,DocDate,ItemCode,WHCode,ShelfCode,QTY,BillQTY,UnitCode,Price,Amount,BarCode,IsCancel,LineNumber)
+values	(@vDocNo,@vDocDate,@vItemCode,@vWHCode,@vShelfCode,@vQTY,@vBillQTY,@vUnitCode,@vPrice,@vAmount,@vBarCode,0,@vLineNumber)
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_CalcDriveInMergeTemp
+@vDocNo nvarchar(20)
+as
+
+set		dateformat dmy
+
+select	result.*,isnull(a.name1,'') as itemname,result.qty*(price-discountamount) as amount,(select top 1 sum(qty*(price-discountamount)) as net from npmaster.dbo.TB_NP_DriveInMergeTemp where docno = @vDocNo) as netamount,
+	isnull(b.rate1,1) as rate1,isnull(rate2,1) as rate2
+from 
+(
+select	DocNo,DocDate,ItemCode,sum(QTY) as qty,UnitCode,Price,BarCode,whcode,shelfcode,(select top 1 discountamount from npmaster.dbo.TB_NP_DriveInMergeTemp where docno = @vDocNo and a.itemcode = itemcode and a.unitcode = unitcode order by docno desc) as discountamount,
+	(select top 1 isnull(refno,'') as refno from npmaster.dbo.TB_NP_DriveInMergeTemp where docno = @vDocNo and a.itemcode = itemcode and a.unitcode = unitcode order by refno desc) as refno
+from	npmaster.dbo.TB_NP_DriveInMergeTemp a
+where	docno = @vDocNo
+group	by DocNo,DocDate,ItemCode,UnitCode,Price,BarCode,whcode,shelfcode
+) as	result
+	left join dbo.bcitem a on result.itemcode = a.code
+	left join dbo.bcstkpacking b on result.itemcode = b.itemcode and result.unitcode = b.unitcode
+order	by result.itemcode
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertDriveInMergeTemp
+@vDocNo nvarchar(20),
+@vDocDate nvarchar(20),
+@vItemCode nvarchar(30),
+@vWHCode nvarchar(10),
+@vShelfCode nvarchar(20),
+@vQTY as money,
+@vUnitCode nvarchar(20),
+@vPrice as money,
+@vDisCountAmount as money,
+@vAmount as money,
+@vBarCode as nvarchar(20),
+@vRefNo as nvarchar(20),
+@vQueID as int,
+@vLineNumber as int
+
+as
+
+set		dateformat dmy
+
+insert	into npmaster.dbo.TB_NP_DriveInMergeTemp(DocNo,DocDate,ItemCode,WHCode,ShelfCode,QTY,UnitCode,Price,DisCountAmount,Amount,BarCode,RefNo,QueID,LineNumber)
+values	(@vDocNo,@vDocDate,@vItemCode,@vWHCode,@vShelfCode,@vQTY,@vUnitCode,@vPrice,@vDisCountAmount,@vAmount,@vBarCode,@vRefNo,@vQueID,@vLineNumber)
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertDriveInCheckOut
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vChecker as nvarchar(30),
+@vNetDebtAmount as money,
+@vUserID as nvarchar(30)
+
+as
+
+set		dateformat dmy
+
+declare	@vExist as int
+set		@vExist = (select isnull(count(docno),0) as vcount from npmaster.dbo.TB_NP_DriveInCheckOut where docno = @vDocNo)
+
+if		@vExist = 0
+begin
+insert	into npmaster.dbo.TB_NP_DriveInCheckOut(DocNo,DocDate,Checker,PosNo,NetDebtAmount,IsCancel,IsConfirm,CreatorCode,CreateDateTime)
+values	(@vDocNo,@vDocDate,@vChecker,'',@vNetDebtAmount,0,0,@vUserID,getdate())
+end
+
+if		@vExist > 0
+begin
+update	npmaster.dbo.TB_NP_DriveInCheckOut
+set	Checker=@vChecker,NetDebtAmount=@vNetDebtAmount
+where	docno = @vDocNo
+
+delete	npmaster.dbo.TB_NP_DriveInCheckOutSub
+where	docno = @vDocNo
+end
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchHoldingDetails
+@vDocNo as nvarchar(50)
+as
+
+set		dateformat dmy
+
+select	a.DocNo,a.DocDate,isnull(a.CashierCode,'') as CashierCode,a.TotalAmount,a.NetDebtAmount,isnull(a.MyDescription ,'') as MyDescription,
+	b.ItemCode,d.itemname,b.WHCode,b.ShelfCode,b.Qty,b.Price,b.Amount,b.NetAmount,b.UnitCode,b.StockType,b.LineNumber,b.BarCode,b.BillTime,b.PosStatus,
+	c.docno as driveinno,c.docdate as driveindate,c.id,c.refid,c.pickzone,c.totalnetamount as driveinamount,d.pickqty,d.confirmqty,d.invqty
+from	bcnpdisa.dbo.BPSHoldingBill a 
+	inner join bcnpdisa.dbo.BPSHoldingBillsub b on a.docno = b.docno and a.docdate = b.docdate  
+	inner join npmaster.dbo.tb_np_driveinslipmaster c on a.docno = c.billposno and a.docdate = c.docdate
+	inner join npmaster.dbo.tb_np_driveinslipsub d on c.docno = d.docno and c.docdate = d.docdate and b.itemcode = d.itemcode and b.unitcode = d.unitcode
+where	a.docno = @vDocNo and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by a.docno
+GO
+
+
+CREATE	procedure dbo.USP_NP_SearchCheckOutHolding
+@vSearch as nvarchar(100)
+as
+
+set		dateformat dmy
+
+if		@vSearch = ''
+begin
+select	DocNo,DocDate,isnull(CashierCode,'') as CashierCode,TotalAmount,NetDebtAmount,isnull(MyDescription ,'') as MyDescription
+from	bcnpdisa.dbo.BPSHoldingBill 
+where	docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+order	by docno
+end
+
+if	@vSearch <> ''
+begin
+select	*
+from
+(
+select	DocNo,DocDate,isnull(CashierCode,'') as CashierCode,TotalAmount,NetDebtAmount,isnull(MyDescription ,'') as MyDescription
+from	bcnpdisa.dbo.BPSHoldingBill 
+where	docno like '%'+@vSearch+'%' and docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+union
+select	DocNo,DocDate,isnull(CashierCode,'') as CashierCode,TotalAmount,NetDebtAmount,isnull(MyDescription ,'') as MyDescription
+from	bcnpdisa.dbo.BPSHoldingBill 
+where	MyDescription like '%'+@vSearch+'%' and docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+) as	result
+order	by docno
+end
+GO
+
+
+
+CREATE	procedure dbo.usp_np_SearchItemPickUpCancel
+@vRefNo as nvarchar(20)
+as
+
+set	dateformat dmy
+
+if	@vRefNo <> '' 
+begin
+	select 	a.docno,a.docdate,a.id,a.refid,a.pickzone,itemcode,itemname,whcode,shelfcode,qty,pickqty,confirmqty,unitcode,price,amount,isnull(barcode,'')  as barcode
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+		inner join npmaster.dbo.tb_np_driveinslipsub b on a.docno = b.docno and a.docdate = b.docdate
+	where 	refid = @vRefNo and b.iscancel = 1 and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	order 	by a.docdate,a.docno
+end
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_GetMaxNoHoldingBill
+@vMachineNo as nvarchar(10),
+@vDocDate as nvarchar(20)
+as
+
+set		dateformat dmy
+
+select		isnull(left(maxno,8),
+		@vMachineNo+right(rtrim(year(getdate())+543),2)+case len(month(getdate())) when 1 then rtrim('0'+rtrim(month(getdate()))) when 2 then rtrim(month(getdate())) end +case len(day(getdate())) when 1 then rtrim('0'+rtrim(day(getdate()))) when 2 then rtrim(day(getdate())) end) as header,cast(isnull(right(maxno,4),0)as int)+1 as maxnumber
+		
+from
+		(
+		select	max(docno) as maxno from bcnpdisa.dbo.BPSHoldingBill where machineno = @vMachineNo and docdate = @vDocDate
+		) as	a
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertHoldingBillDriveInSub
+@vDocNo as nvarchar(20),
+@vDocDate as nvarchar(20),
+@vItemCode as nvarchar(20),
+@vWHCode as nvarchar(20),
+@vShelfCode as nvarchar(20),
+@vQTY as money,
+@vPrice as money,
+@vDiscountAmount as money,
+@vAmount as money,
+@vNetAmount as money,
+@vUnitCode as nvarchar(20),
+@vStockType as smallint,
+@vLineNumber as int,
+@vBarCode as nvarchar(20),
+@vCashierCode as nvarchar(20),
+@vPosStatus as smallint,
+@vSORefNo as nvarchar(20)
+
+as
+
+set		dateformat dmy
+
+declare		@vBillTime as nvarchar(20)
+
+set		@vBillTime = (select rtrim(datepart(hh,getdate()))+':'+rtrim(datepart(n,getdate()))+':'+rtrim(datepart(ss,getdate())) as time1)
+
+insert	into bcnpdisa.dbo.BPSHoldingBillSUB(DocNo,ItemCode,DocDate,WHCode,ShelfCode,Qty,Price,DiscountAmount,Amount,NetAmount,UnitCode,StockType,LineNumber,BarCode,BillTime,CashierCode,PosStatus,SORefNo)
+values	(@vDocNo,@vItemCode,@vDocDate,@vWHCode,@vShelfCode,@vQty,@vPrice,@vDiscountAmount,@vAmount,@vNetAmount,@vUnitCode,@vStockType,@vLineNumber,@vBarCode,@vBillTime,@vCashierCode,@vPosStatus,@vSORefNo)
+GO
+
+
+CREATE	procedure dbo.USP_NP_InsertHoldingBillDriveIn
+@vDocNo as nvarchar(20),
+@vDocDate as nvarchar(20),
+@vExpireCredit as smallint,
+@vArCode as nvarchar(20),
+@vCashierCode as nvarchar(20),
+@vMachineNo as nvarchar(20),
+@vMachineCode as nvarchar(20),
+@vSaleCode as nvarchar(20),
+@vTaxRate as money,
+@vSumOfItemAmount as money,
+@vAfterDiscount as money,
+@vBeforeTaxAmount as money,
+@vTaxAmount as money,
+@vTotalAmount as money,
+@vNetDebtAmount as money,
+@vCreatorCode as nvarchar(20),
+@vSHIFTCODE as nvarchar(20),
+@vMyDescription as nvarchar(100)
+as
+
+set		dateformat dmy
+
+declare	@vCheckExist as int
+declare	@vBillTime as nvarchar(20)
+
+set		@vCheckExist = (select count(docno) from bcnpdisa.dbo.BPSHoldingBill where docno = @vDocNo)
+set		@vBillTime = (select rtrim(datepart(hh,getdate()))+':'+rtrim(datepart(n,getdate()))+':'+rtrim(datepart(ss,getdate())) as time1)
+
+if		@vCheckExist = 0 
+begin
+		insert	into bcnpdisa.dbo.BPSHoldingBill(DocNo,DocDate,ExpireCredit,ArCode,CashierCode,MachineNo,MachineCode,BillTime,SaleCode,TaxRate,SumOfItemAmount,AfterDiscount,BeforeTaxAmount,TaxAmount,TotalAmount,NetDebtAmount,CreatorCode,CreateDateTime,SHIFTCODE,MyDescription)
+		values	(@vDocNo,@vDocDate,@vExpireCredit,@vArCode,@vCashierCode,@vMachineNo,@vMachineCode,@vBillTime,@vSaleCode,@vTaxRate,@vSumOfItemAmount,@vAfterDiscount,@vBeforeTaxAmount,@vTaxAmount,@vTotalAmount,@vNetDebtAmount,@vCreatorCode,getdate(),@vSHIFTCODE,@vMyDescription)
+end
+
+
+if		@vCheckExist <> 0 
+begin
+		update	bcnpdisa.dbo.BPSHoldingBill
+		set	CashierCode=@vCashierCode,MachineNo=@vMachineNo,MachineCode=@vMachineCode,BillTime=@vBillTime,SaleCode=@vSaleCode,
+			TaxRate=@vTaxRate,SumOfItemAmount=@vSumOfItemAmount,AfterDiscount=@vAfterDiscount,BeforeTaxAmount=@vBeforeTaxAmount,
+			TaxAmount=@vTaxAmount,TotalAmount=@vTotalAmount,NetDebtAmount=@vNetDebtAmount,LastEditorCode=@vCreatorCode,LastEditDateT =getdate()
+		where	docno = @vDocNo and docdate = @vDocDate
+
+		delete	bcnpdisa.dbo.BPSHoldingBillsub where docno = @vDocNo and docdate = @vDocDate
+end
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_DriveInCheckOutPos
+@vDocNo as nvarchar(20),
+@vDocDate as nvarchar(20),
+@vPosNo as nvarchar(20),
+@vUserID as nvarchar(30),
+@vItemCode as nvarchar(20),
+@vInvQTY as money,
+@vAmount as money
+as
+
+set		dateformat dmy
+
+update	npmaster.dbo.tb_np_driveinslipmaster
+set	billposno = @vPosNo,isconfirm = 1,confirmcode = @vUserID,confirmdatetime = getdate()
+where	docno = @vDocNo and docdate = @vDocDate
+
+
+update	npmaster.dbo.tb_np_driveinslipsub
+set	invqty = @vInvQTY,amount = @vAmount
+where	docno = @vDocNo and docdate = @vDocDate and itemcode = @vItemCode
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_UpdateDriveInCheckerItemCheckOut
+@vDocno as nvarchar(20),
+@vDocdate as nvarchar(20),
+@vItemCode as nvarchar(20),
+@vKeyQTY as money,
+@vItemAmout as money
+as
+
+set		dateformat dmy
+
+update	npmaster.dbo.tb_np_driveinslipmaster
+set		ischecker =1
+where	docno = @vDocno and iscancel = 0
+
+
+update	npmaster.dbo.tb_np_driveinslipsub
+set		confirmqty = @vKeyQTY ,amount= @vItemAmout
+where	docno = @vDocno and  itemcode = @vItemCode and iscancel = 0
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_UpdateDriveInCancelCheckOut
+@vDocno as nvarchar(20),
+@vDocdate as nvarchar(20),
+@vItemCode as nvarchar(20)
+as
+
+set		dateformat dmy
+
+update	npmaster.dbo.tb_np_driveinslipsub
+set		iscancel = 1 , confirmqty = 0 , invqty = 0 
+where	docno = @vDocno and  itemcode = @vItemCode and iscancel = 0
+GO
+
+
+
+CREATE	procedure dbo.usp_np_SearchPickUp
+@vDocNo as nvarchar(20)
+as
+
+set	dateformat dmy
+
+
+select 	a.docno,a.docdate,a.id,a.refid,a.pickzone,totalnetamount,itemcode,itemname,whcode,shelfcode,qty,pickqty,unitcode,price,amount,barcode
+from 	npmaster.dbo.tb_np_driveinslipmaster a
+		inner join npmaster.dbo.tb_np_driveinslipsub b on a.docno = b.docno and a.docdate = b.docdate
+where 	a.docno = @vDocNo
+order 	by a.docdate,a.docno,linenumber
+GO
+
+
+
+CREATE	procedure dbo.usp_np_SearchDriveInMaster
+@vDIPoint as nvarchar(10),
+@vSearch as nvarchar(20)
+as
+
+set	dateformat dmy
+
+if	@vSearch <> '' 
+begin
+	select	*
+	from
+	(
+	select 	a.docno,a.docdate,isnull(a.refno,'') as refid,a.pickzone,isnull(totalnetamount,0) as totalnetamount,iscancel,isconfirm,
+			isnull(a.arcode,'') as arcode,isnull(a.salecode,'') as salecode,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+			left join dbo.bcar b on a.arcode = b.code
+			left join dbo.bcsale c on a.salecode = c.code
+	where 	pickzone = @vDIPoint and refno like '%'+@vSearch+'%' and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) 
+	union
+	select 	a.docno,a.docdate,isnull(a.refno,'') as refid,a.pickzone,isnull(totalnetamount,0) as totalnetamount,iscancel,isconfirm,
+			isnull(a.arcode,'') as arcode,isnull(a.salecode,'') as salecode,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+			left join dbo.bcar b on a.arcode = b.code
+			left join dbo.bcsale c on a.salecode = c.code
+	where 	pickzone = @vDIPoint and docno like '%'+@vSearch+'%' and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) 
+	union
+	select 	a.docno,a.docdate,isnull(a.refno,'') as refid,a.pickzone,isnull(totalnetamount,0) as totalnetamount,iscancel,isconfirm,
+			isnull(a.arcode,'') as arcode,isnull(a.salecode,'') as salecode,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+			left join dbo.bcar b on a.arcode = b.code
+			left join dbo.bcsale c on a.salecode = c.code
+	where 	pickzone = @vDIPoint and a.arcode like '%'+@vSearch+'%' and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) 
+	union
+	select 	a.docno,a.docdate,isnull(a.refno,'') as refid,a.pickzone,isnull(totalnetamount,0) as totalnetamount,iscancel,isconfirm,
+			isnull(a.arcode,'') as arcode,isnull(a.salecode,'') as salecode,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+			left join dbo.bcar b on a.arcode = b.code
+			left join dbo.bcsale c on a.salecode = c.code
+	where 	pickzone = @vDIPoint and b.name1 like '%'+@vSearch+'%' and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) 
+	union
+	select 	a.docno,a.docdate,isnull(a.refno,'') as refid,a.pickzone,isnull(totalnetamount,0) as totalnetamount,iscancel,isconfirm,
+			isnull(a.arcode,'') as arcode,isnull(a.salecode,'') as salecode,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+			left join dbo.bcar b on a.arcode = b.code
+			left join dbo.bcsale c on a.salecode = c.code
+	where 	pickzone = @vDIPoint and a.salecode like '%'+@vSearch+'%' and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) 
+	union
+	select 	a.docno,a.docdate,isnull(a.refno,'') as refid,a.pickzone,isnull(totalnetamount,0) as totalnetamount,iscancel,isconfirm,
+			isnull(a.arcode,'') as arcode,isnull(a.salecode,'') as salecode,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+			left join dbo.bcar b on a.arcode = b.code
+			left join dbo.bcsale c on a.salecode = c.code
+	where 	pickzone = @vDIPoint and c.name like '%'+@vSearch+'%' and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) 
+	) as	result
+	order 	by docdate desc,docno
+end
+
+if	@vSearch = '' 
+begin
+	select 	top 10 a.docno,a.docdate,isnull(a.refno,'') as refid,a.pickzone,isnull(totalnetamount,0) as totalnetamount,iscancel,isconfirm,
+			isnull(a.arcode,'') as arcode,isnull(a.salecode,'') as salecode,isnull(b.name1,'') as arname,isnull(c.name,'') as salename
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+			left join dbo.bcar b on a.arcode = b.code
+			left join dbo.bcsale c on a.salecode = c.code
+	where	pickzone = @vDIPoint and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime) 
+	order 	by a.docdate desc,a.docno
+end
+
+GO
+
+
+CREATE	procedure dbo.usp_np_SearchItemPickUp
+@vRefNo as nvarchar(20)
+as
+
+set	dateformat dmy
+
+if	@vRefNo <> '' 
+begin
+	select 	a.docno,a.docdate,a.id,a.refid,a.pickzone,isnull(ismerge,0) as ismerge,
+		itemcode,itemname,whcode,shelfcode,qty,pickqty,unitcode,price,amount,isnull(barcode,'') as barcode
+	from 	npmaster.dbo.tb_np_driveinslipmaster a
+		inner join npmaster.dbo.tb_np_driveinslipsub b on a.docno = b.docno and a.docdate = b.docdate
+	where 	refid = @vRefNo and ismerge = 0 and a.iscancel = 0 and b.iscancel = 0 and a.docdate = cast(rtrim(day(getdate()))+'/'+rtrim(month(getdate()))+'/'+rtrim(year(getdate())) as datetime)
+	order 	by a.docdate,a.docno
+end
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_SearchCheckPickStatus
+@vReserveNo as nvarchar(20)
+as
+
+set		dateformat dmy
+
+select	top 1 pickstatus,socountnumber
+from
+(	
+select	docno,pickstatus,socountnumber
+from	npmaster.dbo.tb_np_queuerequestpickingmaster 
+where	docno = @vReserveNo 
+union
+select	docno,pickstatus,socountnumber
+from	bchistory.dbo.tb_np_queuerequestpickingmaster_2008 
+where	docno = @vReserveNo 
+) as	a
+order	by socountnumber desc
+
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertDriveInSlip
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vArCode as nvarchar(20),
+@vMemberID as nvarchar(30),
+@vSaleCode as nvarchar(30),
+@vRefNo as nvarchar(50),
+@vPickZone as nvarchar(2),
+@vBeforeTaxAmount as money,
+@vTaxAmount as money,
+@vTotalNetAmount as money,
+@vCreatorCode as nvarchar(30)
+
+as
+
+declare	@vCheckExist as int
+
+set		dateformat dmy
+
+set	@vCheckExist = (select count(docno) from npmaster.dbo.TB_NP_DriveInSlipMaster where docno = @vDocno)
+
+if	@vCheckExist = 0 
+begin
+insert	npmaster.dbo.TB_NP_DriveInSlipMaster(DocNo,DocDate,ARCode,MemberID,SaleCode,RefNo,PickZone,BeforeTaxAmount,TaxAmount,TotalNetAmount,IsCancel,IsMerge,CreatorCode,CreateDateTime)
+values	(@vDocNo,@vDocDate,@vARCode,@vMemberID,@vSaleCode,@vRefNo,@vPickZone,@vBeforeTaxAmount,@vTaxAmount,@vTotalNetAmount,0,0,@vCreatorCode,getdate())
+end
+
+if	@vCheckExist > 0 
+begin
+update	npmaster.dbo.TB_NP_DriveInSlipMaster
+set	arcode = @vARCode,memberid=@vMemberID,salecode = @vSaleCode,refNo = @vRefNo,BeforeTaxAmount=@vBeforeTaxAmount,TaxAmount=@vTaxAmount,TotalNetAmount = @vTotalNetAmount,LastEditorCode = @vCreatorCode,LastEditDateTime = getdate()
+where	docno = @vDocno
+end
+
+delete	npmaster.dbo.TB_NP_DriveInSlipSub where docno = @vDocno
+GO
+
+
+
+CREATE	procedure dbo.USP_NP_InsertDriveInSlipSub
+@vDocNo as nvarchar(30),
+@vDocDate as nvarchar(20),
+@vItemCode as nvarchar(20),
+@vItemName as nvarchar(250),
+@vWHCode as nvarchar(20),
+@vShelfCode as nvarchar(20),
+@vShelfID as nvarchar(20),
+@vZoneID as nvarchar(20),
+@vQTY as money,
+@vUnitCode as nvarchar(20),
+@vPrice as money,
+@vDisCountWord as nvarchar(50),
+@vDisCountAmount as money,
+@vAmount as money,
+@vBarCode as nvarchar(30),
+@vLineNumber as int
+as
+
+set		dateformat dmy
+
+insert	npmaster.dbo.TB_NP_DriveInSlipSub(DocNo,DocDate,ItemCode,ItemName,WHCode,ShelfCode,ShelfID,ZoneID,QTY,UnitCode,Price,DisCountWord,DisCountAmount,Amount,IsCancel,BarCode,LineNumber)
+values	(@vDocNo,@vDocDate,@vItemCode,@vItemName,@vWHCode,@vShelfCode,@vShelfID,@vZoneID,@vQTY,@vUnitCode,@vPrice,@vDisCountWord,@vDisCountAmount,@vAmount,0,@vBarCode,@vLineNumber)
+GO

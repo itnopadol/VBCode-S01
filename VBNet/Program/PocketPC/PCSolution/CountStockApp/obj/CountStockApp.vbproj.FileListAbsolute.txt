@@ -1,0 +1,10 @@
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\bin\Debug\CountStockApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\bin\Debug\CountStockApp.pdb
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\bin\Debug\CountStockApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\obj\Debug\ResolveAssemblyReference.cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\obj\Debug\CountStockApp.FrmCountStock.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\obj\Debug\CountStockApp.Resources.resources
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\obj\Debug\CountStockApp.vbproj.GenerateResource.Cache
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\obj\Debug\CountStockApp.exe
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\obj\Debug\CountStockApp.xml
+D:\Work\Nopadol\Program\PocketPC\PCSolution\CountStockApp\obj\Debug\CountStockApp.pdb
